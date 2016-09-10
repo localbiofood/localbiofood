@@ -1,117 +1,106 @@
 var googleMap = {
+
+
+    getKurzemeLoc: function()
+    {
+        return {lat: 56.8635184, lng:21.8856784};
+    },
+    getLatgaleLoc: function()
+    {
+        return {lat: 56.4191032, lng:26.4756745};
+    },
+    getRigaLoc: function()
+    {
+        return {lat: 56.9715833, lng:23.9901725};
+    },
+    getVidzemeLoc: function()
+    {
+        return {lat: 57.3241842, lng:25.0419587};
+    },
+    getZemgaleLoc: function()
+    {
+        return {lat: 56.4943488, lng:24.110379};
+    },
+
+
     initMap: function (){
         var map;
-        // function initMap() {
             map = new google.maps.Map(document.getElementById('map'), {
                 center: {lat: 56.949649, lng: 24.105186},
-                zoom: 8
+                zoom: 6
             });
-        // }
+
+
+        var ctaLayer = new google.maps.KmlLayer({
+            url: 'https://dl.dropboxusercontent.com/u/46566612/LVA_adm11.kml'+"?rev=",
+            map:map
+        });
+        ctaLayer.setMap(map);
+
+        ctaLayer.addListener('click', function(kmlEvent) {
+            var text = kmlEvent.featureData.name;
+            // googleMap.closeUp(this);
+
+            googleMap.closeUp(text, map);
+        });
+
+
+        googleMap.setRegionListeners(map);
+
+
 
     },
-    //OLD STUFFF MAYBE
-    // initialize: function () {
-    //     var mapDiv = document.getElementById('map');
-	//
-    //     var mapOptions = {
-    //         // How zoomed in you want the map to start at (always required)
-    //         zoom: 8,
-    //         scrollwheel: false,
-    //         // The latitude and longitude to center the map (always required)
-    //         center: new google.maps.LatLng(56.9834821, 24.4387936),
-    //     };
-	//
-    //     var map = new google.maps.Map(mapDiv, mapOptions);
-	//
-    //     var markers = [];
-    //     $coordinates = getCoordinates(map);
-    //     //var neighborhoods = [
-    //     //     Main
-    //         //{lat: coordinates['latitude'], lng: coordinates['longitude'], title: coordinates['title'], icon: 'map-pin.png'},
-    //     //];
-    //     //addMarkerWithTimeout(neighborhoods[i], i * 150);
-	//
-	//
-    //     // Enable scroll zoom after drag on map
-    //     map.addListener('drag', function() {
-    //         map.setOptions({
-    //             scrollwheel: true
-    //         });
-    //     });
-	//
-    //     // Enable scroll zoom after drag on map
-    //     map.addListener('drag', function() {
-    //         map.setOptions({
-    //             scrollwheel: true
-    //         });
-    //     });
-	//
-    //     // Disable scroll zoom when mouse leave map
-    //     map.addListener('mouseout', function() {
-    //         map.setOptions({
-    //             scrollwheel: false
-    //         });
-    //     });
-	//
-    //     function getCoordinates(marker){
-    //         $.ajax({
-    //             type: 'POST',
-    //             url: '/getlocations',
-    //             dataType: 'json',
-    //             timeout: 3000,
-    //             headers: {
-    //                 "_token": "{{ csrf_token() }}",
-    //                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-    //             },
-    //             //data: {
-    //             //    title: $(this).val(),
-    //             //},
-    //             success: function (data) {
-    //                 var geocoder = new google.maps.Geocoder;
-    //                 for (var key in data) {
-    //                     if (data.hasOwnProperty(key)) {
-    //                         if (data[key]['lat'] != 'undefined' && data[key]['lng'] != 'undefined' && data[key]['description'] != 'undefined'){
-    //                             var infowindow = new google.maps.InfoWindow({
-    //                                 content: data[key]['description']
-    //                             });
-		// 						marker = new google.maps.Marker({
-    //                                 position: new google.maps.LatLng(data[key]['lat'],data[key]['lng']),
-    //                                 map: map
-    //                             });
-    //                             marker.addListener('click', function() {
-    //                                 infowindow.open(map, marker);
-    //                             });
-    //                         }
-    //                     }
-    //                 }
-	//
-    //                 //    marker = new google.maps.Marker({
-    //                 //    // The below line is equivalent to writing:
-    //                 //    // position: new google.maps.LatLng(-34.397, 150.644)
-    //                 //    position: new google.maps.LatLng(-34.397, 150.644),
-    //                 //    map: map
-    //                 //});
-	//
-    //                 //$.each(data.test, function(index, value) {
-    //                 //    markers.push(new google.maps.Marker({
-    //                 //        position: new google.maps.LatLng(value.lat, value.lon),
-    //                 //        map: map,
-    //                 //        title: 'title',
-    //                 //        animation: google.maps.Animation.DROP
-    //                 //    }));
-    //                 //
-    //                 //    $coordinates = getCoordinates();
-    //                 //});
-    //                 //if (data.alt !== 'undefined') {
-    //                 //    alert('kaut kas saturigs');
-    //                 //}
-    //             },
-    //             error: function ()
-    //             {
-    //                 alert('what tf');
-    //             }
-    //         });
-    //     }
-    // },
+    setRegionListeners : function(map)
+    {
+        $("#kurzeme").click(function(){
+            map.setCenter(googleMap.getKurzemeLoc());
+            map.setZoom(9);
+        });
+        $("#riga").click(function(){
+            map.setCenter(googleMap.getRigaLoc());
+            map.setZoom(9);
+        });
+        $("#vidzeme").click(function(){
+            map.setCenter(googleMap.getVidzemeLoc());
+            map.setZoom(9);
+        });
+        $("#zemgale").click(function(){
+            map.setCenter(googleMap.getZemgaleLoc());
+            map.setZoom(9);
+        });
+        $("#latgale").click(function(){
+            map.setCenter(googleMap.getLatgaleLoc());
+            map.setZoom(9);
+        });
+
+    },
+    closeUp: function($region, map)
+    {
+
+        console.log($region);
+        switch ($region){
+            case 'Kurzeme':
+                map.setCenter(googleMap.getKurzemeLoc);
+                map.setZoom(9);
+                break;
+            case 'Latgale':
+                map.setCenter(googleMap.getLatgaleLoc());
+                map.setZoom(9);
+                break;
+            case 'Riga':
+                map.setCenter(googleMap.getRigaLoc);
+                map.setZoom(9);
+                break;
+            case 'Vidzeme':
+                map.setCenter(googleMap.getVidzemeLoc());
+                map.setZoom(9);
+            case 'Zemgale':
+                map.setCenter(googleMap.getZemgaleLoc());
+                map.setZoom(9);Riga
+        }
+
+        // console.log('closups')
+    }
+
 };
 

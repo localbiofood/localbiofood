@@ -136,10 +136,26 @@
     <ul>
         <li class="cd-label">Informācija</li>
         <li class="has-children bookmarks">
-            <a href="about-test.php">Par mums</a>
+            <a href="#">Par mums</a>
         </li>
         <li class="has-children bookmarks">
-            <a href="contact-test.php">Kontakti</a>
+            <a href="#">Kontakti</a>
+        </li>
+
+        <li class="has-children bookmarks">
+            <a href="#" id="riga">Rīga</a>
+        </li>
+        <li class="has-children bookmarks">
+            <a href="#" id="kurzeme">Kurzeme</a>
+        </li>
+        <li class="has-children bookmarks">
+            <a href="#" id="vidzeme">Vidzeme</a>
+        </li>
+        <li class="has-children bookmarks">
+            <a href="#" id="latgale">Latgale</a>
+        </li>
+        <li class="has-children bookmarks">
+            <a href="#" id="zemgale">Zemgale</a>
         </li>
     </ul>
 </nav>
