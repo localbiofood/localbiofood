@@ -136,7 +136,7 @@
     <ul>
         <li class="cd-label">Informācija</li>
         <li class="has-children bookmarks">
-            <a href="#">Par mums</a>
+            <a href="about">Par mums</a>
         </li>
         <li class="has-children bookmarks">
             <a href="#">Kontakti</a>
