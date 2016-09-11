@@ -1,6 +1,6 @@
 <header class="cd-main-header">
     <a href="#0" class="cd-logo">
-        <img src="/assets/img/logo.png" alt="avatar">
+        <img src="assets/img/logo.png" alt="avatar">
     </a>
 
     <div class="cd-search is-hidden">
@@ -17,7 +17,7 @@
             <li><a href="register-test.php">Reģistrācija</a></li>
             <li class="has-children account">
                 <a href="#0">
-                    <img src="/assets/img/cd-avatar.png" alt="avatar">
+                    <img src="assets/img/cd-avatar.png" alt="avatar">
                     Profils
                 </a>
                 <ul>

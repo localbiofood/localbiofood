@@ -14,3 +14,7 @@
 Route::get('/', function () {
     return view('startpage');
 });
+
+Route::get('bio/about', function(){
+    return view('about');
+});
