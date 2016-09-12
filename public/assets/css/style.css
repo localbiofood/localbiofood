@@ -32,17 +32,14 @@ input {
   font-size: 1.6rem;
 }
 
-.content-wrapper {
-  height: 100%;
-  background: #fafafa;
-}
-
 .cd-main-content {
-  height: 100%;
+  min-height: 100vh;
 }
 
 #map {
-    height: 100%;
+    height: 100vh;
+    padding: 0;
+    margin: 0;
 }
 
 input[type="search"]::-webkit-search-decoration,
@@ -80,31 +77,20 @@ input[type="search"]::-webkit-search-results-decoration {
 }
 .cd-main-content .content-wrapper {
   text-align: center;
-  padding: 3em 0;
+  padding: 0;
   font-size: 2rem;
+  height: 100%;
+
 }
 .cd-main-content::before {
   /* never visible - used to check MQ in jQuery */
   display: none;
   content: 'mobile';
 }
+
 @media only screen and (min-width: 768px) {
   .cd-main-content .content-wrapper {
-    margin-left: 110px;
-    padding-top: 55px;
-  }
-  .cd-main-content .content-wrapper h1 {
-    padding: 4em 0;
-    font-size: 3.2rem;
-    font-weight: 300;
-  }
-  .cd-main-content::before {
-    content: 'tablet';
-  }
-}
-@media only screen and (min-width: 1170px) {
-  .cd-main-content .content-wrapper {
-    margin-left: 200px;
+    margin-left: 350px;
   }
   .cd-main-content::before {
     content: 'desktop';
@@ -436,12 +422,20 @@ input[type="search"]::-webkit-search-results-decoration {
 }
 .cd-side-nav a {
   position: relative;
-  color: #ffffff;
+  color: #eee;
   font-size: 1.4rem;
 }
 .cd-side-nav a:hover {
   color: #70b517;
   box-shadow: inset 3px 0 0 #70b517;
+  transition: all 0.25s ease-in-out;
+  background: #292d32;
+}
+.cd-side-nav a.active {
+  color: #70b517;
+  box-shadow: inset 3px 0 0 #70b517;
+  transition: all 0.25s ease-in-out;
+  background: #292d32;
 }
 .cd-side-nav ul.cd-top-nav > li:last-of-type > a {
   border-bottom: none;
@@ -449,6 +443,7 @@ input[type="search"]::-webkit-search-results-decoration {
 .cd-side-nav > ul > li > a {
   padding-left: calc(5% + 24px);
   border-bottom: 1px solid #373d44;
+  text-decoration: none;
 }
 
 .cd-side-nav .count {
@@ -476,7 +471,7 @@ input[type="search"]::-webkit-search-results-decoration {
     position: relative;
     float: left;
     top: auto;
-    width: 200px;
+    width: 350px;
     min-height: 100vh;
     padding-top: 55px;
     /* reset style */
@@ -516,10 +511,6 @@ input[type="search"]::-webkit-search-results-decoration {
   }
   .cd-side-nav > ul {
     padding: 0.6em 0;
-  }
-  .cd-side-nav > ul > li:not(.action-btn):hover > a {
-    background-color: #33383e;
-    box-shadow: inset 3px 0 0 #70b517;
   }
   .cd-side-nav > ul > li > a {
     padding: 1em 1em 1em 42px;
@@ -649,36 +640,12 @@ input[type="search"]::-webkit-search-results-decoration {
     padding-left: 18px !important;
   }
 }
-@media only screen and (min-width: 768px) {
-  .has-children > ul {
-    width: 100%;
-    z-index: 1;
-  }
-  .has-children ul a {
-    padding-left: 18px;
-  }
-  .no-touch .cd-side-nav .has-children:hover > ul, .cd-side-nav .has-children.hover > ul {
-    /* show subnavigation on hover */
-    display: block;
-    opacity: 1;
-    visibility: visible;
-    background-color: #292d32;
-    width: auto;
-    min-width: auto;
-    padding: 10px;
-    color: #eee;
-    white-space: nowrap;
-    overflow: hidden;
-    overflow-y: auto;
-    overflow-x: hidden;
-    /*min-height: 100%;*/
-    max-height: 500px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
-  }
-}
 
 /*About Page*/
 
+.container {
+  margin-left: 200px;
+}
 #about {
   margin: 4%;
   padding: 0 2em 2em 2em;
@@ -688,7 +655,6 @@ input[type="search"]::-webkit-search-results-decoration {
   color:#292d32;
   width: auto;
 }
-
 #about h1 {
   padding: 2em 0 0 0;
   text-transform: uppercase;
@@ -696,7 +662,6 @@ input[type="search"]::-webkit-search-results-decoration {
   line-height: 1.4;
   position: relative;
 }
-
 #about .header-style-first::before {
   content: "";
   position: absolute;
@@ -709,7 +674,6 @@ input[type="search"]::-webkit-search-results-decoration {
   margin: 0 auto;
   background-color: #dfdfdf;
 }
-
 #about .header-style-first::after {
   content: "";
   position: absolute;
@@ -723,11 +687,9 @@ input[type="search"]::-webkit-search-results-decoration {
   background-color: #70b517;
   transition: all 0.3s ease 0s;
 }
-
 #about .header-style-first:hover::after{
   width: 30%;
 }
-
 #about h2 {
   text-transform: uppercase;
   letter-spacing: 1.2px;
@@ -735,11 +697,9 @@ input[type="search"]::-webkit-search-results-decoration {
   position: relative;
   overflow: hidden;
 }
-
 #about .header-style-second {
   text-align: right;
 }
-
 #about .header-style-second::before {
   content: "";
   position: relative;
@@ -752,15 +712,12 @@ input[type="search"]::-webkit-search-results-decoration {
   background: #70b517;
   transition: all 0.3s ease 0s;
 }
-
 #about .header-style-second:hover::before {
   left: -2ex;
 }
-
 #about .header-style-three {
   text-align: left;
 }
-
 #about .header-style-three::after {
   content: "";
   position: relative;
@@ -773,15 +730,36 @@ input[type="search"]::-webkit-search-results-decoration {
   background: #70b517;
   transition: all 0.3s ease 0s;
 }
-
 #about .header-style-three:hover::after {
   left: 2ex;
 }
-
 #about p {
   font-size: 15px;
   text-align: justify;
   letter-spacing: 1px;
   line-height: 1.5;
   padding: 2em 0;
+}
+
+/*Sidemenu item collapse*/
+
+.collapse.in {
+  width: 100%;
+  color: #eee;
+}
+.collapse-menu > a, .collapse-menu-regional > a {
+  text-align: left;
+  display: block;
+  padding-left: calc(5% + 36px);
+  text-decoration: none;
+}
+.collapse-menu > a:last-child {
+  text-align: center;
+  padding-left: 0;
+  color: #646a6f;
+  box-shadow: none;
+  background: #1a1a1a;
+}
+.collapse-menu > a:hover, .collapse-menu-regional > a:hover {
+  box-shadow: none;
 }

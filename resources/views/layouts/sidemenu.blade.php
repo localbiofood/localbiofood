@@ -2,159 +2,83 @@
     <ul>
         <li class="cd-label">Izvēlne</li>
         <li class="has-children">
-            <a href="index.php">Visi ražotāji<span class="count">10 000</span></a>
-            <ul>
-                <li>
-                    <input type="text" class="form-control"  placeholder="Search" >
-                    <div class="table-responsive">
-                        <table class="table table-hover">
-                            <thead>
-                            <tr>
-                                <th> #</th>
-                                <th> Nosaukums</th>
-                                <th> Datums</th>
-                                <th> Reģions</th>
-                                <th> Informācija</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <tr>
-                                <td>1</td>
-                                <td>Local Bio Food</td>
-                                <td>10.08.2016</td>
-                                <td>Vidzemes reģions</td>
-                                <td><button type="button" class="btn btn-success btn-sm">Sīkāk</button></td>
-                            </tr>
-                            <tr>
-                                <td>2</td>
-                                <td>Local Bio Food</td>
-                                <td>10.08.2016</td>
-                                <td>Vidzemes reģions</td>
-                                <td><button type="button" class="btn btn-success btn-sm">Sīkāk</button></td>
-                            </tr>
-                            <tr>
-                                <td>3</td>
-                                <td>Local Bio Food</td>
-                                <td>10.08.2016</td>
-                                <td>Vidzemes reģions</td>
-                                <td><button type="button" class="btn btn-success btn-sm">Sīkāk</button></td>
-                            </tr>
-                            <tr>
-                                <td>4</td>
-                                <td>Local Bio Food</td>
-                                <td>10.08.2016</td>
-                                <td>Vidzemes reģions</td>
-                                <td><button type="button" class="btn btn-success btn-sm">Sīkāk</button></td>
-                            </tr>
-                            <tr>
-                                <td>4</td>
-                                <td>Local Bio Food</td>
-                                <td>10.08.2016</td>
-                                <td>Vidzemes reģions</td>
-                                <td><button type="button" class="btn btn-success btn-sm">Sīkāk</button></td>
-                            </tr>
-                            <tr>
-                                <td>4</td>
-                                <td>Local Bio Food</td>
-                                <td>10.08.2016</td>
-                                <td>Vidzemes reģions</td>
-                                <td><button type="button" class="btn btn-success btn-sm">Sīkāk</button></td>
-                            </tr>
-                            </tbody>
-                        </table>
+            <a href="#allmanufacturers" data-toggle="collapse">Visi ražotāji<span class="count">236</span></a>
+                <div id="allmanufacturers" class="collapse">
+                    <div class="collapse-menu">
+                        <a href="#">Raunas Ķiploks SIA</a>
+                        <a href="#">Raunas Ķiploks SIA</a>
+                        <a href="#">Raunas Ķiploks SIA</a>
+                        <a href="#">Raunas Ķiploks SIA</a>
+                        <a href="#">Raunas Ķiploks SIA</a>
+                        <a href="#">Raunas Ķiploks SIA</a>
+                        <a href="#">vairāk...</a>
                     </div>
-                </li>
-            </ul>
-        </li>
-        <li class="has-children notifications">
-            <a href="index.php">Reģiona ražotāji	<span class="count">3</span></a>
-            <ul>
-                <li><a href="index.php">Vidzemes reģions</a></li>
-                <li><a href="index.php">Kurzemes reģions</a></li>
-                <li><a href="index.php">Zemgales reģions</a></li>
-                <li><a href="index.php">Latgales reģions</a></li>
-            </ul>
-        </li>
-        <li class="has-children comments">
-            <a href="index.php">Jaunākie pievienotie<span class="count">2</span></a>
-            <ul>
-                <input type="text" class="form-control"  placeholder="Search" >
-                <div class="table-responsive">
-                    <table class="table table-hover">
-                        <thead>
-                        <tr>
-                            <th> #</th>
-                            <th> Nosaukums</th>
-                            <th> Datums</th>
-                            <th> Reģions</th>
-                            <th> Informācija</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>Local Bio Food</td>
-                            <td>10.08.2016</td>
-                            <td>Vidzemes reģions</td>
-                            <td><button type="button" class="btn btn-success btn-sm">Sīkāk</button></td>
-                        </tr>
-                        <tr>
-                            <td>2</td>
-                            <td>Local Bio Food</td>
-                            <td>10.08.2016</td>
-                            <td>Vidzemes reģions</td>
-                            <td><button type="button" class="btn btn-success btn-sm">Sīkāk</button></td>
-                        </tr>
-                        <tr>
-                            <td>3</td>
-                            <td>Local Bio Food</td>
-                            <td>10.08.2016</td>
-                            <td>Vidzemes reģions</td>
-                            <td><button type="button" class="btn btn-success btn-sm">Sīkāk</button></td>
-                        </tr>
-                        <tr>
-                            <td>4</td>
-                            <td>Local Bio Food</td>
-                            <td>10.08.2016</td>
-                            <td>Vidzemes reģions</td>
-                            <td><button type="button" class="btn btn-success btn-sm">Sīkāk</button></td>
-                        </tr>
-                        <tr>
-                            <td>4</td>
-                            <td>Local Bio Food</td>
-                            <td>10.08.2016</td>
-                            <td>Vidzemes reģions</td>
-                            <td><button type="button" class="btn btn-success btn-sm">Sīkāk</button></td>
-                        </tr>
-                        </tbody>
-                    </table>
                 </div>
-            </ul>
+        </li>
+        <li class="has-children">
+            <a href="#regional" data-toggle="collapse">Reģiona ražotāji<span class="count">3</span></a>
+                <div id="regional" class="collapse">
+                    <div class="collapse-menu-regional">
+                        <a href="#">Vizemes reģions</a>
+                        <a href="#">Kurzemes reģions</a>
+                        <a href="#">Zemgales reģions</a>
+                        <a href="#">Latgales reģions</a>
+                        <a href="#">Rīgas reģions</a>
+                    </div>
+                </div> 
+        </li>
+        <li class="has-children">
+            <a href="#newest" data-toggle="collapse">Jaunākie pievienotie<span class="count">31</span></a>
+                <div id="newest" class="collapse">
+                    <div class="collapse-menu">
+                        <a href="#">Raunas Ķiploks SIA</a>
+                        <a href="#">Raunas Ķiploks SIA</a>
+                        <a href="#">Raunas Ķiploks SIA</a>
+                        <a href="#">Raunas Ķiploks SIA</a>
+                        <a href="#">Raunas Ķiploks SIA</a>
+                        <a href="#">Raunas Ķiploks SIA</a>
+                        <a href="#">vairāk...</a>
+                    </div>
+                </div>      
+        </li>
+        <li class="has-children">
+            <a href="#inhouse" data-toggle="collapse">Pieejami uzreiz</a>
+                <div id="inhouse" class="collapse">
+                    <div class="collapse-menu">
+                        <a href="#" class="active">Merķeļa iela 23, Rīga | Šodien plkst. 13:00</a>
+                        <a href="#">Merķeļa iela 23, Rīga | Šodien plkst. 13:00</a>
+                        <a href="#">Merķeļa iela 23, Rīga | Šodien plkst. 13:00</a>
+                        <a href="#">Merķeļa iela 23, Rīga | Šodien plkst. 13:00</a>
+                        <a href="#">Merķeļa iela 23, Rīga | Šodien plkst. 13:00</a>
+                        <a href="#">Merķeļa iela 23, Rīga | Šodien plkst. 13:00</a>
+                        <a href="#">vairāk...</a> 
+                   </div>
+                </div>
         </li>
     </ul>
 
     <ul>
         <li class="cd-label">Informācija</li>
-        <li class="has-children bookmarks">
+        <li>
             <a href="about">Par mums</a>
         </li>
-        <li class="has-children bookmarks">
+        <li class="has-children">
             <a href="#">Kontakti</a>
         </li>
 
-        <li class="has-children bookmarks">
+        <li class="has-children">
             <a href="#" id="riga">Rīga</a>
         </li>
-        <li class="has-children bookmarks">
+        <li class="has-children">
             <a href="#" id="kurzeme">Kurzeme</a>
         </li>
-        <li class="has-children bookmarks">
+        <li class="has-children">
             <a href="#" id="vidzeme">Vidzeme</a>
         </li>
-        <li class="has-children bookmarks">
+        <li class="has-children">
             <a href="#" id="latgale">Latgale</a>
         </li>
-        <li class="has-children bookmarks">
+        <li class="has-children">
             <a href="#" id="zemgale">Zemgale</a>
         </li>
     </ul>

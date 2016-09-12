@@ -11,5 +11,6 @@ async defer></script>
 <script type="text/javascript" src="assets/js/jquery.tablesorter.js"></script>
 <script src="assets/js/jquery.menu-aim.js"></script>
 <script src="assets/js/main.js"></script> <!-- Resource jQuery -->
+<script src="assets/js/bootstrap.min.js"></script>
 </body>
 </html>

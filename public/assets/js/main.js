@@ -127,4 +127,17 @@ jQuery(document).ready(function(){
 		}
 		scrolling = false;
 	}
+
+		//on desktop, adds active class when user has clicked on item
+	$('.collapse-menu a, .collapse-menu-regional a').click(function(e){
+		e.preventDefault();
+		$('.collapse-menu a').removeClass('active');
+		$(this).addClass('active');
+	});
+
+	$('.cd-side-nav a').click(function(e){
+		e.preventDefault();
+		$('.cd-side-nav a').removeClass('active');
+		$(this).addClass('active');
+	});
 });

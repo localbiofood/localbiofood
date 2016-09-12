@@ -1,5 +1,5 @@
 <header class="cd-main-header">
-    <a href="#0" class="cd-logo">
+    <a href="." class="cd-logo">
         <img src="assets/img/logo.png" alt="avatar">
     </a>
 
