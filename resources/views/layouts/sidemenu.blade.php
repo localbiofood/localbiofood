@@ -19,11 +19,11 @@
             <a href="#regional" data-toggle="collapse">Reģiona ražotāji<span class="count">3</span></a>
                 <div id="regional" class="collapse">
                     <div class="collapse-menu-regional">
-                        <a href="#">Vizemes reģions</a>
-                        <a href="#">Kurzemes reģions</a>
-                        <a href="#">Zemgales reģions</a>
-                        <a href="#">Latgales reģions</a>
-                        <a href="#">Rīgas reģions</a>
+                        <a href="#" id="vidzeme">Vizemes reģions</a>
+                        <a href="#" id="kurzeme">Kurzemes reģions</a>
+                        <a href="#" id="zemgale">Zemgales reģions</a>
+                        <a href="#" id="latgale">Latgales reģions</a>
+                        <a href="#" id="riga">Rīgas reģions</a>
                     </div>
                 </div> 
         </li>
@@ -63,23 +63,7 @@
             <a href="about">Par mums</a>
         </li>
         <li class="has-children">
-            <a href="#">Kontakti</a>
-        </li>
-
-        <li class="has-children">
-            <a href="#" id="riga">Rīga</a>
-        </li>
-        <li class="has-children">
-            <a href="#" id="kurzeme">Kurzeme</a>
-        </li>
-        <li class="has-children">
-            <a href="#" id="vidzeme">Vidzeme</a>
-        </li>
-        <li class="has-children">
-            <a href="#" id="latgale">Latgale</a>
-        </li>
-        <li class="has-children">
-            <a href="#" id="zemgale">Zemgale</a>
+            <a href="contact">Kontakti</a>
         </li>
     </ul>
 </nav>

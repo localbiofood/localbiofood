@@ -18,3 +18,7 @@ Route::get('/', function () {
 Route::get('bio/about', function(){
     return view('about');
 });
+
+Route::get('bio/contact', function(){
+    return view('contact');
+});
