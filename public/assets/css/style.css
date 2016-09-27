@@ -44,6 +44,28 @@ input {
     height: 100%;
 }
 
+
+.provider-block {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  float: left;
+  width: 250px;
+  margin: 5px 5px 20px 5px;
+  border-top: 3px solid #312f2d;
+  transition: border-top 0.3s ease;
+  min-height: 240px;
+  position: relative;
+  padding-top: 5px;
+  padding-bottom: 28px;
+  background: #fff;
+  font-size: 16px;
+  /*border-color: hsla(0, 0%, 0%, 0.7);*/
+}
+
+
+
+
 input[type="search"]::-webkit-search-decoration,
 input[type="search"]::-webkit-search-cancel-button,
 input[type="search"]::-webkit-search-results-button,

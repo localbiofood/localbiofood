@@ -14,3 +14,10 @@
 Route::get('/', function () {
     return view('startpage');
 });
+
+Route::get('newpage', function () {
+	return view('newPage');
+});
+
+
+Route::get('website', 'WebsitesController@show')->name('website::show');
