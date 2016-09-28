@@ -1,11 +1,12 @@
 @include('layouts.head')
 <body>
+
 @include('layouts.header')
 
-<main class="cd-main-content">
     @include('layouts.sidemenu')
-    <div class="content-wrapper">
-       @yield('content')
+        <div id="content-wrapper">
+            <div class="container-fluid">
+                @yield('content')
 
     @include('layouts.footer')
 

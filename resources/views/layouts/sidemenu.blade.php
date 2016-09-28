@@ -1,69 +1,36 @@
-<nav class="cd-side-nav">
-    <ul>
-        <li class="cd-label">Izvēlne</li>
-        <li class="has-children">
-            <a href="#allmanufacturers" data-toggle="collapse">Visi ražotāji<span class="count">236</span></a>
-                <div id="allmanufacturers" class="collapse">
-                    <div class="collapse-menu">
-                        <a href="#">Raunas Ķiploks SIA</a>
-                        <a href="#">Raunas Ķiploks SIA</a>
-                        <a href="#">Raunas Ķiploks SIA</a>
-                        <a href="#">Raunas Ķiploks SIA</a>
-                        <a href="#">Raunas Ķiploks SIA</a>
-                        <a href="#">Raunas Ķiploks SIA</a>
-                        <a href="#">vairāk...</a>
-                    </div>
-                </div>
-        </li>
-        <li class="has-children">
-            <a href="#regional" data-toggle="collapse">Reģiona ražotāji<span class="count">3</span></a>
-                <div id="regional" class="collapse">
-                    <div class="collapse-menu-regional">
-                        <a href="#" id="vidzeme">Vizemes reģions</a>
-                        <a href="#" id="kurzeme">Kurzemes reģions</a>
-                        <a href="#" id="zemgale">Zemgales reģions</a>
-                        <a href="#" id="latgale">Latgales reģions</a>
-                        <a href="#" id="riga">Rīgas reģions</a>
-                    </div>
-                </div> 
-        </li>
-        <li class="has-children">
-            <a href="#newest" data-toggle="collapse">Jaunākie pievienotie<span class="count">31</span></a>
-                <div id="newest" class="collapse">
-                    <div class="collapse-menu">
-                        <a href="#">Raunas Ķiploks SIA</a>
-                        <a href="#">Raunas Ķiploks SIA</a>
-                        <a href="#">Raunas Ķiploks SIA</a>
-                        <a href="#">Raunas Ķiploks SIA</a>
-                        <a href="#">Raunas Ķiploks SIA</a>
-                        <a href="#">Raunas Ķiploks SIA</a>
-                        <a href="#">vairāk...</a>
-                    </div>
-                </div>      
-        </li>
-        <li class="has-children">
-            <a href="#inhouse" data-toggle="collapse">Pieejami uzreiz</a>
-                <div id="inhouse" class="collapse">
-                    <div class="collapse-menu">
-                        <a href="#" class="active">Merķeļa iela 23, Rīga | Šodien plkst. 13:00</a>
-                        <a href="#">Merķeļa iela 23, Rīga | Šodien plkst. 13:00</a>
-                        <a href="#">Merķeļa iela 23, Rīga | Šodien plkst. 13:00</a>
-                        <a href="#">Merķeļa iela 23, Rīga | Šodien plkst. 13:00</a>
-                        <a href="#">Merķeļa iela 23, Rīga | Šodien plkst. 13:00</a>
-                        <a href="#">Merķeļa iela 23, Rīga | Šodien plkst. 13:00</a>
-                        <a href="#">vairāk...</a> 
-                   </div>
-                </div>
-        </li>
-    </ul>
-
-    <ul>
-        <li class="cd-label">Informācija</li>
-        <li>
-            <a href="about">Par mums</a>
-        </li>
-        <li class="has-children">
-            <a href="contact">Kontakti</a>
-        </li>
-    </ul>
-</nav>
+<!-- Sidebar Menu Items -->
+            <div class="collapse navbar-collapse navbar-collapse-1">
+                <ul class="nav navbar-nav side-nav">
+                    <li class="sidenav-label">Izvēlne</li>
+                    <li class="active">
+                        <a href="/"><i class="fa fa-fw fa-globe"></i> Visi ražotāji <span class="count">224</span></a>
+                    </li>
+                    <li>
+                        <a href="#" data-toggle="collapse" data-target="#regional"><i class="fa fa-fw fa-arrows-h"></i> Reģiona ražotāji <i class="fa fa-fw fa-caret-down"></i></a>
+                        <ul id="regional" class="collapse">
+                            <li>
+                                <a href="#" id="riga">Rīga</a>
+                            </li>
+                            <li>
+                                <a href="#" id="vidzeme">Vidzemes reģions</a>
+                            </li>
+                            <li>
+                                <a href="#" id="kurzeme">Kurzemes reģions</a>
+                            </li>
+                            <li>
+                                <a href="#" id="zemgale">Zemgales reģions</a>
+                            </li>
+                            <li>
+                                <a href="#" id="latgale">Latgales reģions</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="/"><i class="fa fa-fw fa-bullseye"></i> Jaunākie pievienotie <span class="count">8</span></a>
+                    </li>
+                    <li>
+                        <a href="/"><i class="fa fa-fw fa-american-sign-language-interpreting"></i> Pieejami uzreiz <span class="count">43</span></a>
+                    </li>
+                </ul>
+            </div><!-- /.navbar-collapse -->
+        </nav>
