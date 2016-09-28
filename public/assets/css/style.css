@@ -395,12 +395,13 @@ textarea.form-control{
 
 .my-table {
     text-align: left;
-    overflow: hidden;
+    overflow: auto;
     width: 100%;
     margin: 0 auto 30px auto;
     display: table;
     padding: 0 0 8em 0;
     color: #333;
+    height: 450px;
 }
 
 @media screen and (min-width:1200px){
@@ -436,7 +437,7 @@ textarea.form-control{
 .my-table td:first-child { color: #70b517; }
 
 .my-table tr:hover {
-    background-color: #70b517;
+    background: rgba(112, 181, 23, 0.2);
     -webkit-box-shadow: 0 6px 6px -6px #dbdbdb;
 	-moz-box-shadow: 0 6px 6px -6px #dbdbdb;
 	box-shadow: 0 6px 6px -6px #dbdbdb;
@@ -444,7 +445,8 @@ textarea.form-control{
 /* ---- Thumbnail product list ---- */
 
 .media {
-    text-transform: uppercase;
+    margin-top: 10%;
+    margin-bottom: 10%;
 }
 .media-heading {
     margin-top: 20px;
