@@ -30,6 +30,24 @@ a:hover {
   background: #70b517;
 }
 
+.provider-block {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  float: left;
+  width: 250px;
+  margin: 5px 5px 20px 5px;
+  border-top: 3px solid #312f2d;
+  transition: border-top 0.3s ease;
+  min-height: 240px;
+  position: relative;
+  padding-top: 5px;
+  padding-bottom: 28px;
+  background: #fff;
+  font-size: 16px;
+  /*border-color: hsla(0, 0%, 0%, 0.7);*/
+}
+
 #wrapper {
   padding-left: 0;
   padding-top: 100px;
@@ -379,10 +397,16 @@ textarea.form-control{
     text-align: left;
     overflow: hidden;
     width: 100%;
-    margin: 0 auto;
+    margin: 0 auto 30px auto;
     display: table;
     padding: 0 0 8em 0;
     color: #333;
+}
+
+@media screen and (min-width:1200px){
+    .my-table {
+        margin-bottom: 0;
+    }
 }
 
 .my-table td, .my-table th {
