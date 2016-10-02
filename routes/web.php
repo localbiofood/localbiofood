@@ -11,6 +11,10 @@
 |
 */
 
+Auth::routes();
+
+Route::get('/home', 'HomeController@index');
+
 Route::get('/', function () {
     return view('startpage');
 });
@@ -29,3 +33,6 @@ Route::get('bio/about', function(){
 Route::get('bio/contact', function(){
     return view('contact');
 });
+
+
+

@@ -13,25 +13,48 @@
             </div>
             <!-- Top Menu Items -->
             <ul class="nav navbar-right top-nav">
+                @if (Auth::check())
                 <li>
-                    <a href="#">Reģistrācija</a>
+                    <a href="/register">Reģistrācija</a>
                 </li>
+                @endif
                 <li class="dropdown profile">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><img src="assets/img/avatar.png"> Jānis <b class="caret"></b></a>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        @if (Auth::check())
+                            <img src="assets/img/fish.svg"> Jānis <b class="caret"></b>
+                        @else
+                            <img src="assets/img/cheese.svg"> Jānis <b class="caret"></b>
+                        @endif
+                    </a>
                     <ul class="dropdown-menu">
+                        @if (Auth::check())
                         <li>
                             <a href="#"><i class="fa fa-fw fa-user"></i> Profils</a>
                         </li>
                         <li>
-                            <a href="#"><i class="fa fa-fw fa-envelope"></i> Vēstules</a>
+                            <a href="#"><i class="fa ffoa-fw fa-envelope"></i> Vēstules</a>
                         </li>
                         <li>
                             <a href="#"><i class="fa fa-fw fa-gear"></i> Iestatījumi</a>
                         </li>
                         <li class="divider"></li>
                         <li>
-                            <a href="#"><i class="fa fa-fw fa-power-off"></i> Iziet</a>
+                                <a href="{{ url('/logout') }}"
+                                   onclick="event.preventDefault();
+                                                         document.getElementById('logout-form').submit();">
+                                    <i class="fa fa-fw fa-power-off"></i> Iziet</a>
+                                </a>
+                                <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
+                                    {{ csrf_field() }}
+                                </form>
+                                LogIn
                         </li>
+                        @else
+                            <li>
+                                <a href="#"><i class="fa fa-fw fa-user"></i> Ielogoties</a>
+                            </li>
+                        @endif
+
                     </ul>
                 </li>
             </ul>
