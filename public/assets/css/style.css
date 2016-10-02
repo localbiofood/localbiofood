@@ -1,6 +1,7 @@
 html {
   font-size: 62.5%;
   height: 100%;
+  background-color:#D4D8D1;
 }
 
 body {
@@ -51,6 +52,7 @@ a:hover {
 #wrapper {
   padding-left: 0;
   padding-top: 100px;
+  /*background-color:#D4D8D1;*/
 }
 
 #content-wrapper {
@@ -127,6 +129,10 @@ ul.nav.navbar-right.top-nav>li.dropdown.profile>a:hover{
     padding-bottom: 15px;
     line-height: 20px;
     color: #999;
+}
+.green {
+    background:#080808;
+    color: #70b517;
 }
 
 .top-nav>li>a:hover,

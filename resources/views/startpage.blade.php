@@ -10,7 +10,7 @@
         <!-- Content section -->
       <div class="row">
             <div class="col-lg-6 col-md-12">
-                <table ng-table="vm.tableParams" class="table" show-filter="true">
+                <table ng-table="vm.tableParams" class="table table-bordered table-condensed table-hover table-striped" show-filter="true">
                     <thead>
                         <tr>
                             <th>#</th>
