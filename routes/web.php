@@ -24,8 +24,6 @@ Route::get('newpage', function () {
 });
 
 
-Route::get('website', 'WebsitesController@show')->name('website::show');
-
 Route::get('bio/about', function(){
     return view('about');
 });
@@ -33,6 +31,11 @@ Route::get('bio/about', function(){
 Route::get('bio/contact', function(){
     return view('contact');
 });
+
+Route::get('/profile', ['as' => 'profile', 'uses' => 'UserController@show'])->middleware('auth');
+Route::post('/profile', ['as' => 'profile::save', 'uses' => 'UserController@save'])->middleware('auth');
+Route::get('/timetable', ['as' => 'timetable::list', 'uses' => 'TimetableController@show'])->middleware('auth');
+
 
 
 

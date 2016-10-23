@@ -20,16 +20,20 @@ var googleMap = {
 			mapTypeControl: false,
 			scaleControl: false,
 			draggable: false,
-			zIndex:62
+			zIndex:62,
+			disableDefaultUI: true
 		});
+		var ctaLayer = {};
 		googleMap.setLatviaOverlay(map);
 		googleMap.setRegionListeners(map);
+		googleMap.timetableCloseUp(map)
+		map.setZoom(3);
 
 	},
 
 	setLatviaOverlay: function(map)
 	{
-		var ctaLayer = new google.maps.KmlLayer({
+		ctaLayer = new google.maps.KmlLayer({
 			url: 'https://dl.dropboxusercontent.com/u/46566612/LVA_adm11.kml'+"?rev="+Date.now(),
 			map:map,
 			zIndex:80
@@ -84,9 +88,14 @@ var googleMap = {
 		$($item).closest('li').addClass('active');
 	},
 
-	closeUp: function($region, map)
+	closeUp: function($region, map, closeUp)
 	{
-		var closeUp = 8;
+
+		if (typeof closeUp === 'undefined')
+		{
+			closeUp = 8;
+		}
+
 		switch ($region){
 			case 'Kurzeme':
 				googleMap.setActiveMenuItem($('#menu_kurzeme'));
@@ -113,6 +122,29 @@ var googleMap = {
 				map.panTo(zemgaleLocation);
 				map.setZoom(closeUp	);
 		}
+	},
+
+	timetableCloseUp: function(map)
+	{
+		$('#region_dropdown').change(function(){
+			ctaLayer.setMap(null);
+
+			ctaLayer = new google.maps.KmlLayer({
+				url: 'https://dl.dropboxusercontent.com/u/46566612/LVA_adm11-onlyBoarders.kml'+"?rev="+Date.now(),
+				map:map,
+				zIndex:80
+			});
+			ctaLayer.setMap(map);
+
+			$region = $(this).val();
+			googleMap.closeUp($region, map, 3);
+
+			ctaLayer.addListener('click', function(kmlEvent) {
+				var text = kmlEvent.featureData.name;
+				googleMap.closeUp(text, map);
+			});
+
+		});
 	}
 
 };

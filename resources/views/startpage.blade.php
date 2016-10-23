@@ -3,14 +3,14 @@
         <!-- Heading section -->
     <div class="row header-style-row">
         <div class="col-lg-12">
-        <h1 class="header-style-first">Ražotāju sadaļa</h1>
+        <h1 id="#first" class="header-style-first">Ražotāju sadaļa</h1>
         </div>
     </div>
 
         <!-- Content section -->
       <div class="row">
             <div class="col-lg-6 col-md-12">
-                <table ng-table="vm.tableParams" class="table table-bordered table-condensed table-hover table-striped" show-filter="true">
+                <table ng-table="vm.tableParams" class="table table-bordered table-condensed table-hover table-striped" show-filter="true" >
                     <thead>
                         <tr>
                             <th>#</th>

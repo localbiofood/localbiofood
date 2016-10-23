@@ -1,7 +1,10 @@
 html {
   font-size: 62.5%;
   height: 100%;
-  background-color:#D4D8D1;
+    color:#6a6c6f;
+    background-color: #ffffff;
+
+    /*background-color:#D4D8D1;*/
 }
 
 body {
@@ -19,6 +22,11 @@ a:hover {
   color: #87cb1a;
   text-decoration: none;
 }
+
+.container-center {
+    text-align:center;
+}
+
 
 #map {
     height: 450px;
@@ -58,6 +66,15 @@ a:hover {
 #content-wrapper {
   width: 100%;
   padding: 0;
+}
+
+.bs-callout {
+    padding: 20px;
+    margin: 20px 0;
+    border: 1px solid #eee;
+    border-left-width: 5px;
+    border-radius: 3px;
+    border-left-color: #62cb31;
 }
 
 @media screen and (min-width:768px){
@@ -151,7 +168,7 @@ ul.nav.navbar-right.top-nav>li.dropdown.profile>a:hover{
     border: 1px solid rgba(0,0,0,.15);
     border-top-left-radius: 0;
     border-top-right-radius: 0;
-    background-color: #fff;
+    /*background-color: #fff;*/
     -webkit-box-shadow: 0 6px 12px rgba(0,0,0,.175);
     box-shadow: 0 6px 12px rgba(0,0,0,.175);
 }
@@ -201,7 +218,7 @@ ul.alert-dropdown {
         border: none;
         border-radius: 0;
         overflow-y: auto;
-        background-color: #1a1a1a;
+        /*background-color: #1a1a1a;*/
         bottom: 0;
         overflow-x: hidden;
         padding-bottom: 40px;
@@ -218,7 +235,7 @@ ul.alert-dropdown {
     .side-nav li a:hover,
     .side-nav li a:focus {
         outline: none;
-        background-color: #000 !important;
+        /*background-color: #000 !important;*/
         box-shadow: inset 3px 0 0 #70b517;
     }
 }
@@ -270,7 +287,7 @@ li.sidenav-label {
   transform: translateY(-50%);
   right: 5px;
   padding: 0.1em 0.5em;
-  background-color: #70b517;
+  /*background-color: #70b517;*/
   border-radius: .25em;
   color: #ffffff;
   font-weight: bold;
@@ -308,7 +325,7 @@ li.sidenav-label {
   right: 0;
   bottom: 0;
   margin: 0 auto;
-  background-color: #dfdfdf;
+  /*background-color: #dfdfdf;*/
 }
 .about .header-style-first::after, #inner-container legend::after {
   content: "";
@@ -320,7 +337,7 @@ li.sidenav-label {
   right: 0;
   bottom: 0;
   margin: 0 auto;
-  background-color: #70b517;
+  /*background-color: #70b517;*/
   transition: all 0.3s ease 0s;
 }
 .about .header-style-first:hover::after, #inner-container legend:hover::after{
@@ -423,11 +440,11 @@ textarea.form-control{
 }
 
 .my-table tr:nth-child(odd) {
-	  background-color: #f0f0f0;
+	  /*background-color: #f0f0f0;*/
 }
 
 .my-table tr:nth-child(even) {
-	  background-color: #ebebeb;
+	  /*background-color: #ebebeb;*/
 }
 
 .my-table th {
@@ -525,7 +542,7 @@ textarea.form-control{
     right: 0;
     bottom: 0;
     margin: 0 auto;
-    background-color: #dfdfdf;
+    /*background-color: #dfdfdf;*/
 }
 
 .header-style-second::after{
