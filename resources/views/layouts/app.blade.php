@@ -2,14 +2,24 @@
 <body>
 
 <div id="wrapper">
-    <div id="overlay" style="display:block;position:absolute;left:0;top:0;z-index: 60;width:100%">
+    <div id="overlay" >
         <div class="container-center">
-            Te
+            <div class="header-text-block">
+                <p>
+                    Localbiofood <br />
+                    Tava labākā izvēle
+                </p>
+            </div>
+            <div class="header-button-block">
+                    <p><span id="header-button"><a href="/"><i class="glyphicon glyphicon-chevron-down"></i></a></span></p>
+            </div>
         </div>
-        <img src="/assets/img/header2.jpg" alt="header image" >
-    </div>
 
+
+
+    </div>
     <!-- Navigation -->
+
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
         <!-- For mobile display -->
         <div class="navbar-header">
@@ -21,9 +31,30 @@
             </button>
             <a class="navbar-brand" href="/">#Localbiofood</a>
         </div>
+        <ul class="nav navbar-left top-nav">
+            <li class="green" >
+                <a href="/login"></i> Riga</a>
+            </li>
+            <li class="green" >
+                <a href="/login"></i> Vidzeme</a>
+            </li>
+            <li class="green" >
+                <a href="/login"></i> Zemgale</a>
+            </li>
+            <li class="green" >
+                <a href="/login"></i> Kurzeme</a>
+            </li>
+            <li class="green" >
+                <a href="/login"></i> Latgale</a>
+            </li>
+
+         </ul>
         <!-- Top Menu Items -->
         <ul class="nav navbar-right top-nav">
 
+            <li>
+                <a href="{{route('timetable::list')}}"><i class="fa fa-map-marker" aria-hidden="true"></i>Pievienot atrašanās vietu</a>
+            </li>
             @if (Auth::check())
                 <li class="dropdown profile">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
@@ -34,10 +65,7 @@
                             <a href="{{route('profile')}}"><i class="fa fa-fw fa-user"></i> Profils</a>
                         </li>
                         <li>
-                            <a href="#"><i class="fa ffoa-fw fa-envelope"></i> Vēstules</a>
-                        </li>
-                        <li>
-                            <a href="#"><i class="fa fa-fw fa-gear"></i> Iestatījumi</a>
+                            <a href="{{route('timetable::list')}}"><i class="fa fa-map-marker" aria-hidden="true"></i>Pievienot atrašanās vietu</a>
                         </li>
                         <li class="divider"></li>
                         <li>
@@ -62,6 +90,7 @@
             @endif
         </ul>
 
+        </nav>
     @include('layouts.sidemenu')
         <div id="content-wrapper">
             <div class="container-fluid">
@@ -71,11 +100,15 @@
         </div>
 </div>
 <script src="assets/js/gmap.js"></script>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCPGgBHAlfYvfitdF967fvGW6YRU0WbuCE&callback=googleMap.initMap"
-        async defer></script>
 
-<script src="js/jquery/dist/jquery.min.js"></script>
+<script src="assets/js/gmapAdd.js"></script
+{{--<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCPGgBHAlfYvfitdF967fvGW6YRU0WbuCE&callback=googleMap.initMap"--}}
+        {{--async defer></script>--}}
+
+
+
 <script src="assets/js/bootstrap.min.js"></script>
+<script src="js/jquery/dist/jquery.min.js"></script>
 <script src="assets/js/main.js"></script>
 
 {{-- Angular JS partt --}}

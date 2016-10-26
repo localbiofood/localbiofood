@@ -3,7 +3,7 @@
         <!-- Heading section -->
     <div class="row header-style-row">
         <div class="col-lg-12">
-        <h1 id="#first" class="header-style-first">Ražotāju sadaļa</h1>
+            <h1 id="#first" class="header-style-first">Rīga</h1>
         </div>
     </div>
 

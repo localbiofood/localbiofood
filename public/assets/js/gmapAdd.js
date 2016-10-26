@@ -2,8 +2,8 @@
 //    googleMap.initialize();
 // });
 
-var googleMap = {
-    initialize: function () {
+var googleMapAdd = {
+    initMap: function () {
         var mapDiv = document.getElementById('map');
         var mapOptions = {
             // How zoomed in you want the map to start at (always required)
