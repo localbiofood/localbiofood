@@ -19,8 +19,9 @@ a {
   text-decoration: none;
 }
 a:hover {
-  color: #87cb1a;
-  text-decoration: none;
+  color: black;
+    font-weight: 700;
+  text-decoration: solid;
 }
 
 
@@ -45,12 +46,13 @@ a:hover {
 }
 
 .header-text-block {
-    width: 1100px;
-    float:left;
+    min-width: 400px;
+    max-width: 80%;
     color: white;
 	font-size: 25px;
 	font-weight: 900;
-    margin: 250px 250px 50px 250px;
+    margin: 0 auto;
+    margin-top: 250px;
 	background-color: #0B1022;
 	border-radius: 4px;
 	opacity: 0.7;
@@ -67,6 +69,10 @@ a:hover {
 
 }
 
+.active .media-body {
+    color:#87cb1a;
+}
+
 #header-button {
     padding: 10px 25px;
     border-radius: 4px;
@@ -79,7 +85,6 @@ a:hover {
 #overlay {
     width:100%;
     /*position:fixed;*/
-
 }
 
 .btn-success {
@@ -223,6 +228,7 @@ ul.nav.navbar-right.top-nav>li.dropdown.profile>a:hover{
     float: left;
     position: absolute;
     margin-top: 0;
+    width:300px;
     border: 1px solid rgba(0,0,0,.15);
     border-top-left-radius: 0;
     border-top-right-radius: 0;

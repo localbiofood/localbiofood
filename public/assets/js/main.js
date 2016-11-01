@@ -17,6 +17,23 @@ var App = {
 
 	timetable: function ()
 	{
+		$('#region_dropdown').change(function(){
+			googleMapAdd.zoomRegion($('#region_dropdown').val());
+		})
+
+		// On media icon click, get value, and leave it active
+		$('.media').click(function(){
+			var id = $(this).data("id");
+			if ($(this).hasClass('active'))
+			{
+				$(this).removeClass('active');
+				$()
+			} else {
+				$(this).addClass('active');
+			}
+		});
+
+
 
 	}
 
