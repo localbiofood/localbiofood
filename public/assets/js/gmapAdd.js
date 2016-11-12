@@ -34,7 +34,7 @@ var googleMapAdd = {
 
 		autocomplete.addListener('place_changed', function() {
 			infowindow.close();
-			marker.setVisible(false);
+			marker.setVisible(true);
 			var place = autocomplete.getPlace();
 			if (!place.geometry) {
 				// User entered the name of a Place that was not suggested and
@@ -60,8 +60,10 @@ var googleMapAdd = {
 			marker.setPosition(place.geometry.location);
 			marker.setVisible(true);
 
-			setupClickListener('changetype-address', ['address']);
-			setupClickListener('Address', ['address']);
+			$('#lat').val(marker.getPosition().lat());
+			$('#lng').val(marker.getPosition().lng());
+			// setupClickListener('changetype-address', ['address']);
+			// setupClickListener('Address', ['address']);
 
 			var address = '';
 			if (place.address_components) {
@@ -139,13 +141,13 @@ var googleMapAdd = {
 
 		google.maps.event.addListener(map, 'click', function (event)
 		{
-			$lat = event.latLng.lat();
-			$lng = event.latLng.lng();
-			$('#lat').val($lat);
-			$('#lng').val($lng);
-			// geocodeLatLng(geocoder, map, $lat, $lng);
-
-			placeMarker(event.latLng);
+			// $lat = event.latLng.lat();
+			// $lng = event.latLng.lng();
+			// $('#lat').val($lat);
+			// $('#lng').val($lng);
+			// // geocodeLatLng(geocoder, map, $lat, $lng);
+			//
+			// placeMarker(event.latLng);
 		});
 
 	},

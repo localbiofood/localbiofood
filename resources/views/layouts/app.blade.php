@@ -1,6 +1,5 @@
 @include('layouts.head')
 <body>
-
 <div id="wrapper">
     <div id="overlay" >
         <div class="container-center">
@@ -11,7 +10,7 @@
                 </p>
             </div>
             <div class="header-button-block">
-                    <p><span id="header-button"><a href="/"><i class="glyphicon glyphicon-chevron-down"></i></a></span></p>
+                    <p><span id="header-button"><a href="/" ><i class="glyphicon glyphicon-chevron-down" style="padding-top:20px"></i></a></span></p>
             </div>
         </div>
 
@@ -29,7 +28,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="/">#Localbiofood</a>
+            <a class="navbar-brand" href="/">Localbiofood</a>
         </div>
         <ul class="nav navbar-left top-nav">
             <li class="green" >
@@ -53,7 +52,7 @@
         <ul class="nav navbar-right top-nav">
 
             <li>
-                <a href="{{route('timetable::list')}}"><i class="fa fa-map-marker" aria-hidden="true"></i>Pievienot atrašanās vietu</a>
+                <a href="{{route('timetable::edit')}}"> <i class="fa fa-map-marker" aria-hidden="true"></i> &nbsp Pievienot atrašanās vietu</a>
             </li>
             @if (Auth::check())
                 <li class="dropdown profile">
@@ -65,8 +64,15 @@
                             <a href="{{route('profile')}}"><i class="fa fa-fw fa-user"></i> Profils</a>
                         </li>
                         <li>
-                            <a href="{{route('timetable::list')}}"><i class="fa fa-map-marker" aria-hidden="true"></i>Pievienot atrašanās vietu</a>
+                            <a href="{{route('timetable::edit')}}"><i class="fa fa-map-marker" aria-hidden="true"></i>Pievienot atrašanās vietu</a>
                         </li>
+
+                        @if (Auth::user()->admin === "1")
+                        <li>
+                            <a href="{{route('admin::edit')}}"><i class="fa fa-cog fa-fw" aria-hidden="true"></i>Admin panelis</a>
+                        </li>
+                        @endif
+
                         <li class="divider"></li>
                         <li>
                             <a href="{{ url('/logout') }}"
@@ -92,23 +98,24 @@
 
         </nav>
     @include('layouts.sidemenu')
-        <div id="content-wrapper">
+
+
+    <div id="content-wrapper">
             <div class="container-fluid">
                 @yield('content')
-
             </div>
         </div>
 </div>
 <script src="assets/js/gmap.js"></script>
+<script src="https://unpkg.com/vue/dist/vue.js"></script>
 
-<script src="assets/js/gmapAdd.js"></script
+<script src="assets/js/gmapAdd.js"></script>
 {{--<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCPGgBHAlfYvfitdF967fvGW6YRU0WbuCE&callback=googleMap.initMap"--}}
         {{--async defer></script>--}}
 
 
-
-<script src="assets/js/bootstrap.min.js"></script>
 <script src="js/jquery/dist/jquery.min.js"></script>
+<script src="assets/js/bootstrap.min.js"></script>
 <script src="assets/js/main.js"></script>
 
 {{-- Angular JS partt --}}

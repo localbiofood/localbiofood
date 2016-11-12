@@ -6,9 +6,9 @@ $( document ).ready(function() {
 var App = {
 	timepicker: function ()
 	{
-		$('#time_from').timepicker({ 'timeFormat': 'H:i' });
+		$('#time_when').timepicker({ 'timeFormat': 'H:i' });
 
-		$('#time_to').timepicker({
+		$('#time_when').timepicker({
 			'timeFormat': 'H:i',
 			'maxTime': '24',
 		});
@@ -17,20 +17,29 @@ var App = {
 
 	timetable: function ()
 	{
-		$('#region_dropdown').change(function(){
-			googleMapAdd.zoomRegion($('#region_dropdown').val());
+		$('#region').change(function(){
+			googleMapAdd.zoomRegion($('#region').val());
 		})
 
 		// On media icon click, get value, and leave it active
 		$('.media').click(function(){
 			var id = $(this).data("id");
-			if ($(this).hasClass('active'))
+			console.log(id);
+			if (id == 'all')
 			{
-				$(this).removeClass('active');
-				$()
+				$('.media').addClass('active');
+				$('.media input').val(1)
 			} else {
-				$(this).addClass('active');
+				if ($(this).hasClass('active'))
+				{
+					$("#" + id).val(0);
+					$(this).removeClass('active');
+				} else {
+					$("#" + id).val(1);
+					$(this).addClass('active');
+				}
 			}
+
 		});
 
 

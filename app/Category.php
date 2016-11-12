@@ -5,7 +5,7 @@ namespace App;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
-class Categories extends Authenticatable
+class Category extends Authenticatable
 {
 	use Notifiable;
 
@@ -23,11 +23,10 @@ class Categories extends Authenticatable
 	protected $hidden = [];
 
 
-	protected $table = 'product_types';
+	protected $table = 'category';
 
 	public static function getProducts()
 	{
-		dd('izsacuas');
 		return self::all();
 	}
 }

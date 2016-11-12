@@ -1,6 +1,34 @@
 @extends('layouts.app')
 @section('content')
-        <!-- Heading section -->
+
+
+    <div id="app">
+
+
+    </div>
+
+
+    {{----}}
+    {{--<h1>Test with vue tables</h1>--}}
+    {{--<div id="people" class="container">--}}
+        {{--<h2>VueTables Client-Side Demo</h2>--}}
+        {{--<div class="alphabet-filter">--}}
+            {{--<p>Custom Filter Example:</p>--}}
+            {{--<button class="btn btn-default" :class="{active:letter==selectedLetter}" v-for="letter in letters" @click="alphabetFilter(letter)">{{letter}}</button>--}}
+            {{--<button class="btn btn-default" @click="alphabetFilter('')">Clear</button>--}}
+        {{--</div>--}}
+        {{--<p>Average Age: {{averageAge}}</p>--}}
+        {{--<v-client-table :data="tableData" :columns="columns" :options="options"></v-client-table>--}}
+        {{--<h4>Want to use the pagination component independently? Use <a target="_blank" href="https://www.npmjs.com/package/v-pagination">v-pagination</a></h4>--}}
+    {{--</div>--}}
+
+
+    <hr>
+
+
+
+
+    <!-- Heading section -->
     <div class="row header-style-row">
         <div class="col-lg-12">
             <h1 id="#first" class="header-style-first">Rīga</h1>
@@ -102,102 +130,7 @@
         </div>
         </div>
 
-        <!-- Product list -->
-        <div class="row header-style-row-content">
-            <div class="col-lg-12">
-                <h2 class="header-style-second">Produkti</h2>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-lg-2 col-lg-offset-2 col-md-3 col-sm-3">
-                <a href="#">
-                    <div class="media">
-                        <div class="pull-left">
-                            <img src="assets/img/groceries.svg">
-                        </div>
-                        <div class="media-body">
-                            <h4 class="media-heading">Visi produkti</h4>
-                        </div>
-                    </div>
-                </a>
-                <a href="#">
-                    <div class="media">
-                        <div class="pull-left">
-                                <img src="assets/img/steak.svg">
-                        </div>
-                        <div class="media-body">
-                            <h4 class="media-heading">Gaļas produkti</h4>
-                        </div>
-                    </div>
-                </a>
-            </div>
-            <div class="col-lg-2 col-md-3 col-sm-3">
-                <a href="#">
-                    <div class="media">
-                        <div class="pull-left">
-                               <img src="assets/img/cheese.svg">
-                        </div>
-                        <div class="media-body">
-                            <h4 class="media-heading">Piena produkti</h4>
-                        </div>
-                    </div>
-                </a>
-                <a href="#">
-                    <div class="media">
-                        <div class="pull-left">
-                                <img src="assets/img/sandwich.svg">
-                        </div>
-                        <div class="media-body">
-                            <h4 class="media-heading">Miltu produkti</h4>
-                        </div>
-                    </div>
-                </a>
-            </div>
-            <div class="col-lg-2 col-md-3 col-sm-3">
-                <a href="#">
-                    <div class="media">
-                        <div class="pull-left">
-                                <img src="assets/img/fish.svg">
-                        </div>
-                        <div class="media-body">
-                            <h4 class="media-heading">Zivis</h4>
-                        </div>
-                    </div>
-                </a>
-                <a href="#">
-                    <div class="media">
-                        <div class="pull-left">
-                                <img src="assets/img/salad.svg">
-                        </div>
-                        <div class="media-body">
-                            <h4 class="media-heading">Dārzeņi</h4>
-                        </div>
-                    </div>
-                </a>
-            </div>
-            <div class="col-lg-2 col-md-3 col-sm-3">
-                <a href="#">
-                    <div class="media">
-                        <div class="pull-left">
-                                <img src="assets/img/cherries.svg">
-                        </div>
-                        <div class="media-body">
-                            <h4 class="media-heading">Augļi</h4>
-                        </div>
-                    </div>
-                </a>
-                <a href="#">
-                    <div class="media">
-                        <div class="pull-left">
-                                <img src="assets/img/tea.svg">
-                        </div>
-                        <div class="media-body">
-                            <h4 class="media-heading">Tējas</h4>
-                        </div>
-                    </div>
-                </a>
-            </div>
-        </div>
+
     </div>
 
     {{--<div id="map"></div>

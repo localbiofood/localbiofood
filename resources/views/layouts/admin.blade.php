@@ -2,22 +2,6 @@
 <body>
 
 <div id="wrapper">
-    <div id="overlay" >
-        <div class="container-center">
-            <div class="header-text-block">
-                <p>
-                    Localbiofood <br />
-                    Tava labākā izvēle
-                </p>
-            </div>
-            <div class="header-button-block">
-                    <p><span id="header-button"><a href="/"><i class="glyphicon glyphicon-chevron-down"></i></a></span></p>
-            </div>
-        </div>
-
-
-
-    </div>
     <!-- Navigation -->
 
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
