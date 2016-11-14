@@ -11,13 +11,17 @@
 |
 */
 
+
+Route::group(['middleware' => 'guest'], function () {
+	Route::get('/', ['as' => 'home', 'uses' => 'HomeController@index']);
+
+});
+
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index');
 
-Route::get('/', function () {
-    return view('startpage');
-});
 
 Route::get('newpage', function () {
 	return view('newPage');

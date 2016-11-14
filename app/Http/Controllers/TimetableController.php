@@ -12,37 +12,24 @@ class TimetableController extends Controller
 {
 
 
-	public function show()
+	public function show(Request $request, $id = null)
 	{
-
 		$data = Company::companyData();
+		$data['timetable'] = Timetable::getTimetableData($id);
 
 		return view('timetable')->with(['data' => $data]);
 	}
+
 
 	public function post(Request $request, $id = 0)
 	{
 		$data = $request->except('_token', 'category');
 		$categories = $request->only('category');
 
+		Timetable::saveTimetable($data);
+		TimetableCategories::saveCategories($id, $categories);
 
-//		$timetable = ($id) ? Timetable::find($id) : new Timetable;
-//		$timetable->fill($data);
-//		$timetable->save();
-//
-//		$timeTableId = $timetable->id;
-
-
-		$this->saveCategories(10, $categories);
-
-		return redirect()->route('timetable::edit')->with('success', 'success');
-	}
-
-
-	private function saveCategories($timeTableId, $categories)
-	{
-		$allrecords = TimetableCategories::where('timetable_id', $timeTableId)->get();
-		dd($allrecords, $categories);
+		return redirect()->route('timetable::edit', ['timetable' => $id])->with('success', 'success');
 	}
 
 }

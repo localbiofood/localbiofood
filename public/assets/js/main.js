@@ -24,11 +24,17 @@ var App = {
 		// On media icon click, get value, and leave it active
 		$('.media').click(function(){
 			var id = $(this).data("id");
-			console.log(id);
 			if (id == 'all')
 			{
-				$('.media').addClass('active');
-				$('.media input').val(1)
+				if ($('.active').length === $('.media').length)
+				{
+					$('.media').removeClass('active');
+					$('.media input').val(0)
+				} else {
+					$('.media').addClass('active');
+					$('.media input').val(1)
+				}
+
 			} else {
 				if ($(this).hasClass('active'))
 				{
@@ -41,9 +47,5 @@ var App = {
 			}
 
 		});
-
-
-
 	}
-
 }

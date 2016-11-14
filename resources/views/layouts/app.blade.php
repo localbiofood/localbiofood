@@ -13,9 +13,6 @@
                     <p><span id="header-button"><a href="/" ><i class="glyphicon glyphicon-chevron-down" style="padding-top:20px"></i></a></span></p>
             </div>
         </div>
-
-
-
     </div>
     <!-- Navigation -->
 
@@ -57,7 +54,7 @@
             @if (Auth::check())
                 <li class="dropdown profile">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                        <img src="assets/img/fish.svg"> {{Auth::user()->name}}<b class="caret"></b>
+                        <img src="/assets/img/fish.svg"> {{Auth::user()->name}}<b class="caret"></b>
                     </a>
                     <ul class="dropdown-menu">
                         <li>
@@ -106,33 +103,36 @@
             </div>
         </div>
 </div>
-<script src="assets/js/gmap.js"></script>
-<script src="https://unpkg.com/vue/dist/vue.js"></script>
+<script src="/assets/js/gmap.js"></script>
+<script src="//cdn.jsdelivr.net/algoliasearch/3/algoliasearch.min.js"></script>
+    <script src="//cdn.jsdelivr.net/algoliasearch/3/algoliasearch.min.js"></script>
+{{--<script src="https://unpkg.com/vue/dist/vue.js"></script>--}}
 
-<script src="assets/js/gmapAdd.js"></script>
+
+<script src="/assets/js/gmapAdd.js"></script>
 {{--<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCPGgBHAlfYvfitdF967fvGW6YRU0WbuCE&callback=googleMap.initMap"--}}
         {{--async defer></script>--}}
 
 
-<script src="js/jquery/dist/jquery.min.js"></script>
-<script src="assets/js/bootstrap.min.js"></script>
-<script src="assets/js/main.js"></script>
+<script src="/js/jquery/dist/jquery.min.js"></script>
+<script src="/assets/js/bootstrap.min.js"></script>
+<script src="/assets/js/main.js"></script>
 
 {{-- Angular JS partt --}}
 <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.2/angular.js"></script>
 <link rel="stylesheet" href="https://cdn.rawgit.com/esvit/ng-table/1.0.0/dist/ng-table.min.css">
 <script src="https://cdn.rawgit.com/esvit/ng-table/1.0.0/dist/ng-table.js"></script>
-<script src="assets/js/app.js"></script>
+<script src="/assets/js/app.js"></script>
 
 {{--<script src="{{resource_path('assets/js/components/timepicker/jquery.timepicker.min.js')}}"></script>--}}
 {{--<script type="text/javascript" src="assets/js/plugins/timepicker/jquery.timepicker.min.js"></script>--}}
 {{--<script type="text/javascript" src="assets/js/plugins/timepicker/jquery.timepicker.css"></script>--}}
 
-<script type="text/javascript" src="assets/js/plugins/timepicker/jquery.timepicker.js"></script>
-<link rel="stylesheet" type="text/css" href="assets/js/plugins/timepicker/jquery.timepicker.css" />
+<script type="text/javascript" src="/assets/js/plugins/timepicker/jquery.timepicker.js"></script>
+<link rel="stylesheet" type="text/css" href="/assets/js/plugins/timepicker/jquery.timepicker.css" />
 
-<script type="text/javascript" src="assets/js/plugins/timepicker/lib/bootstrap-datepicker.js"></script>
-<link rel="stylesheet" type="text/css" href="assets/js/plugins/timepicker/lib/bootstrap-datepicker.css" />
+<script type="text/javascript" src="/assets/js/plugins/timepicker/lib/bootstrap-datepicker.js"></script>
+<link rel="stylesheet" type="text/css" href="/assets/js/plugins/timepicker/lib/bootstrap-datepicker.css" />
 
 
 {{--<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-timepicker/1.10.0/jquery.timepicker.min.js"></script>--}}

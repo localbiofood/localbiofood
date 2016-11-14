@@ -2,24 +2,20 @@
 @section('content')
 
 
-    <div id="app">
-
-
-    </div>
 
 
     {{----}}
     {{--<h1>Test with vue tables</h1>--}}
     {{--<div id="people" class="container">--}}
-        {{--<h2>VueTables Client-Side Demo</h2>--}}
-        {{--<div class="alphabet-filter">--}}
-            {{--<p>Custom Filter Example:</p>--}}
-            {{--<button class="btn btn-default" :class="{active:letter==selectedLetter}" v-for="letter in letters" @click="alphabetFilter(letter)">{{letter}}</button>--}}
-            {{--<button class="btn btn-default" @click="alphabetFilter('')">Clear</button>--}}
-        {{--</div>--}}
-        {{--<p>Average Age: {{averageAge}}</p>--}}
-        {{--<v-client-table :data="tableData" :columns="columns" :options="options"></v-client-table>--}}
-        {{--<h4>Want to use the pagination component independently? Use <a target="_blank" href="https://www.npmjs.com/package/v-pagination">v-pagination</a></h4>--}}
+    {{--<h2>VueTables Client-Side Demo</h2>--}}
+    {{--<div class="alphabet-filter">--}}
+    {{--<p>Custom Filter Example:</p>--}}
+    {{--<button class="btn btn-default" :class="{active:letter==selectedLetter}" v-for="letter in letters" @click="alphabetFilter(letter)">{{letter}}</button>--}}
+    {{--<button class="btn btn-default" @click="alphabetFilter('')">Clear</button>--}}
+    {{--</div>--}}
+    {{--<p>Average Age: {{averageAge}}</p>--}}
+    {{--<v-client-table :data="tableData" :columns="columns" :options="options"></v-client-table>--}}
+    {{--<h4>Want to use the pagination component independently? Use <a target="_blank" href="https://www.npmjs.com/package/v-pagination">v-pagination</a></h4>--}}
     {{--</div>--}}
 
 
@@ -35,100 +31,128 @@
         </div>
     </div>
 
-        <!-- Content section -->
-      <div class="row">
-            <div class="col-lg-6 col-md-12">
-                <table ng-table="vm.tableParams" class="table table-bordered table-condensed table-hover table-striped" show-filter="true" >
-                    <thead>
-                        <tr>
-                            <th>#</th>
-                            <th>Ražotājs</th>
-                            <th>Adrese</th>
-                            <th>Piedāvā</th>
-                            <th>Pieejams</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>Raunas Ķiploks</td>
-                            <td>Vidzemes iela2, Rauna, Raunas pagasts</td>
-                            <td>Ķiploku izstrādājumi</td>
-                            <td>Šodien līdz 14:00</td>
-                        </tr>
-                        <tr>
-                            <td>1</td>
-                            <td>Raunas Ķiploks</td>
-                            <td>Vidzemes iela2, Rauna, Raunas pagasts</td>
-                            <td>Ķiploku izstrādājumi</td>
-                            <td>Šodien līdz 14:00</td>
-                        </tr>
-                        <tr>
-                            <td>1</td>
-                            <td>Raunas Ķiploks</td>
-                            <td>Vidzemes iela2, Rauna, Raunas pagasts</td>
-                            <td>Ķiploku izstrādājumi</td>
-                            <td>Šodien līdz 14:00</td>
-                        </tr>
-                        <tr>
-                            <td>1</td>
-                            <td>Raunas Ķiploks</td>
-                            <td>Vidzemes iela2, Rauna, Raunas pagasts</td>
-                            <td>Ķiploku izstrādājumi</td>
-                            <td>Šodien līdz 14:00</td>
-                        </tr>
-                        <tr>
-                            <td>1</td>
-                            <td>Raunas Ķiploks</td>
-                            <td>Vidzemes iela2, Rauna, Raunas pagasts</td>
-                            <td>Ķiploku izstrādājumi</td>
-                            <td>Šodien līdz 14:00</td>
-                        </tr>
-                        <tr>
-                            <td>1</td>
-                            <td>Raunas Ķiploks</td>
-                            <td>Vidzemes iela2, Rauna, Raunas pagasts</td>
-                            <td>Ķiploku izstrādājumi</td>
-                            <td>Šodien līdz 14:00</td>
-                        </tr>
-                        <tr>
-                            <td>1</td>
-                            <td>Raunas Ķiploks</td>
-                            <td>Vidzemes iela2, Rauna, Raunas pagasts</td>
-                            <td>Ķiploku izstrādājumi</td>
-                            <td>Šodien līdz 14:00</td>
-                        </tr>
-                        <tr>
-                            <td>1</td>
-                            <td>Raunas Ķiploks</td>
-                            <td>Vidzemes iela2, Rauna, Raunas pagasts</td>
-                            <td>Ķiploku izstrādājumi</td>
-                            <td>Šodien līdz 14:00</td>
-                        </tr>
-                        <tr>
-                            <td>1</td>
-                            <td>Raunas Ķiploks</td>
-                            <td>Vidzemes iela2, Rauna, Raunas pagasts</td>
-                            <td>Ķiploku izstrādājumi</td>
-                            <td>Šodien līdz 14:00</td>
-                        </tr>
-                        <tr>
-                            <td>1</td>
-                            <td>Raunas Ķiploks</td>
-                            <td>Vidzemes iela2, Rauna, Raunas pagasts</td>
-                            <td>Ķiploku izstrādājumi</td>
-                            <td>Šodien līdz 14:00</td>
-                        </tr>
 
-                    </tbody>
-                </table>
+    <div class="panel-group" id="accordion">
+        <div class="panel panel-default">
+            {{dump($worktimes)}}
+            <ul>
+                @foreach($worktimes as $worktime)
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                <a data-toggle="collapse" data-parent="#accordion" href="#collapse{{$worktime->id}}">
+                                    {{$worktime->time_when}} - {{$worktime->company}}
+                                </a>
+                            </h4>
+                        </div>
+                        <div id="collapse{{$worktime->id}}" class="panel-collapse collapse ">
+                            <div class="panel-body">
+                                Informācija
+                            </div>
+                        </div>
+                    </div>
+                @endforeach
+        </ul>
+    </div>
+
+
+    <!-- Content section -->
+    <div class="row">
+        <div class="col-lg-6 col-md-12">
+            <table ng-table="vm.tableParams"
+                   class="table table-bordered table-condensed table-hover table-striped"
+                   show-filter="true">
+                <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Ražotājs</th>
+                    <th>Adrese</th>
+                    <th>Piedāvā</th>
+                    <th>Pieejams</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>Raunas Ķiploks</td>
+                    <td>Vidzemes iela2, Rauna, Raunas pagasts</td>
+                    <td>Ķiploku izstrādājumi</td>
+                    <td>Šodien līdz 14:00</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>Raunas Ķiploks</td>
+                    <td>Vidzemes iela2, Rauna, Raunas pagasts</td>
+                    <td>Ķiploku izstrādājumi</td>
+                    <td>Šodien līdz 14:00</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>Raunas Ķiploks</td>
+                    <td>Vidzemes iela2, Rauna, Raunas pagasts</td>
+                    <td>Ķiploku izstrādājumi</td>
+                    <td>Šodien līdz 14:00</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>Raunas Ķiploks</td>
+                    <td>Vidzemes iela2, Rauna, Raunas pagasts</td>
+                    <td>Ķiploku izstrādājumi</td>
+                    <td>Šodien līdz 14:00</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>Raunas Ķiploks</td>
+                    <td>Vidzemes iela2, Rauna, Raunas pagasts</td>
+                    <td>Ķiploku izstrādājumi</td>
+                    <td>Šodien līdz 14:00</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>Raunas Ķiploks</td>
+                    <td>Vidzemes iela2, Rauna, Raunas pagasts</td>
+                    <td>Ķiploku izstrādājumi</td>
+                    <td>Šodien līdz 14:00</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>Raunas Ķiploks</td>
+                    <td>Vidzemes iela2, Rauna, Raunas pagasts</td>
+                    <td>Ķiploku izstrādājumi</td>
+                    <td>Šodien līdz 14:00</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>Raunas Ķiploks</td>
+                    <td>Vidzemes iela2, Rauna, Raunas pagasts</td>
+                    <td>Ķiploku izstrādājumi</td>
+                    <td>Šodien līdz 14:00</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>Raunas Ķiploks</td>
+                    <td>Vidzemes iela2, Rauna, Raunas pagasts</td>
+                    <td>Ķiploku izstrādājumi</td>
+                    <td>Šodien līdz 14:00</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>Raunas Ķiploks</td>
+                    <td>Vidzemes iela2, Rauna, Raunas pagasts</td>
+                    <td>Ķiploku izstrādājumi</td>
+                    <td>Šodien līdz 14:00</td>
+                </tr>
+
+                </tbody>
+            </table>
+        </div>
+        <div class="col-lg-6 col-md-12">
+            <div id="map">
+                <div>
+                </div>
             </div>
-            <div class="col-lg-6 col-md-12">
-                  <div id="map"><div>
-            </div>
         </div>
-        </div>
-        </div>
+    </div>
 
 
     </div>
