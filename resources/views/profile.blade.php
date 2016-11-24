@@ -8,6 +8,13 @@
                     Rediģēt profilu
                 </div>
 
+                @if(Session::has('status'))
+                    <div class="alert alert-danger m-t-md">
+                        Nepieciešāms sākumā pievienot kompānijas datus, lai varētu pievienot lokācijas vietu
+                    </div>
+                @endif
+
+
                 <div class="panel-body">
                     <div class="row">
                         <div class="col-md-12" >

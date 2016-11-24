@@ -23,11 +23,6 @@
             </div>
 
             <div class="col-md-6">
-                <div id="map"></div>
-            </div>
-
-
-            <div class="col-md-6">
                 <form action="{{route('timetable::post')}}" method="POST" class="form-horizontal">
                     {{ csrf_field() }}
 
@@ -82,21 +77,6 @@
                             @endif
                         </div>
                     </div>
-
-                    {{--<div class="form-group @if ($errors->has('productType')) has-error @endif">--}}
-                    {{--<label for="region" class="col-md-2 control-label">Produkta tips:</label>--}}
-                    {{--<div class="col-md-10">--}}
-                    {{--<select name="productType" id="productType" class="form-control">--}}
-                    {{--<option value="">Gaļas produkti</option>--}}
-                    {{--<option value="">Piena produkti</option>--}}
-                    {{--<option value="">Dārzeņi</option>--}}
-                    {{--<option value="">Augi</option>--}}
-                    {{--</select>--}}
-                    {{--@if ($errors->has('productType'))--}}
-                    {{--<span class="help-block">{{ $errors->first('productType')}}</span>--}}
-                    {{--@endif--}}
-                    {{--</div>--}}
-                    {{--</div>--}}
 
                     <div class="form-group @if ($errors->has('Address')) has-error @endif">
                         <label for="region" class="col-md-2 control-label">Adrese: </label>
@@ -219,6 +199,7 @@
                         </div>
                     </div>
 
+                    {{dump(\Auth::user())}}
                     <div class="col-md-12" style="margin-left:10px">
                         <div class="form-group">
                             <input class="btn btn-primary" type="submit" value="Saglabāt">
@@ -228,6 +209,11 @@
 
                 </form>
             </div>
+
+            <div class="col-md-6">
+                <div id="map"></div>
+            </div>
+
         </div>
     </div>
     <script src="https://maps.googleapis.com/maps/api/js?&amp;libraries=places&key=AIzaSyCPGgBHAlfYvfitdF967fvGW6YRU0WbuCE&callback=googleMapAdd.initMap"
