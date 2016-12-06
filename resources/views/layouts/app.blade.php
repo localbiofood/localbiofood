@@ -504,6 +504,24 @@
                             <td>Latgale</td>
                             <td>Piena produkti</td>
                         </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>Liepas</td>
+                            <td>Latgale</td>
+                            <td>Piena produkti</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>Liepas</td>
+                            <td>Latgale</td>
+                            <td>Piena produkti</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>Liepas</td>
+                            <td>Latgale</td>
+                            <td>Piena produkti</td>
+                        </tr>
                         </tbody>
                     </table>
 
@@ -541,63 +559,7 @@
 
                                                             <!-- Read More link -->
                                                         </div>
-                                                    <li class="item" id="item_195">
-                                                        <div class="item_content"><!-- Intro Image -->
-                                                            <figure class="item_img img-intro img-intro__none">
-                                                                <img src="/assets/images/portfolio/category1/image3.jpg"
-                                                                     alt="">
-                                                                <figcaption>Epsum factorial non deposit quid pro quo hic escorol. Olypian quarrels et gorilla congolium sic ad nauseum. Souvlaki ignitus.</figcaption>
-                                                            </figure>
-
-                                                            <!-- Read More link -->
-                                                        </div>
-                                                        <div class="item_content"><!-- Intro Image -->
-                                                            <figure class="item_img img-intro img-intro__none">
-                                                                <img src="/assets/images/portfolio/category1/image4.jpg"
-                                                                     alt="">
-                                                                <figcaption>Epsum factorial non deposit quid pro quo hic escorol. Olypian quarrels et gorilla congolium sic ad nauseum. Souvlaki ignitus.</figcaption>
-                                                            </figure>
-
-                                                            <!-- Read More link -->
-                                                        </div>
-                                                    <li class="item" id="item_197">
-                                                        <div class="item_content"><!-- Intro Image -->
-                                                            <figure class="item_img img-intro img-intro__none">
-                                                                <img src="/assets/images/portfolio/category1/image5.jpg"
-                                                                     alt="">
-                                                                <figcaption>Epsum factorial non deposit quid pro quo hic escorol. Olypian quarrels et gorilla congolium sic ad nauseum. Souvlaki ignitus.</figcaption>
-                                                            </figure>
-
-                                                            <!-- Read More link -->
-                                                        </div>
-                                                        <div class="item_content"><!-- Intro Image -->
-                                                            <figure class="item_img img-intro img-intro__none">
-                                                                <img src="/assets/images/portfolio/category1/image6.jpg"
-                                                                     alt="">
-                                                                <figcaption>Epsum factorial non deposit quid pro quo hic escorol. Olypian quarrels et gorilla congolium sic ad nauseum. Souvlaki ignitus.</figcaption>
-                                                            </figure>
-
-                                                            <!-- Read More link -->
-                                                        </div>
-                                                    <li class="item" id="item_199">
-                                                        <div class="item_content"><!-- Intro Image -->
-                                                            <figure class="item_img img-intro img-intro__none">
-                                                                <img src="/assets/images/portfolio/category1/image7.jpg"
-                                                                     alt="">
-                                                                <figcaption>Epsum factorial non deposit quid pro quo hic escorol. Olypian quarrels et gorilla congolium sic ad nauseum. Souvlaki ignitus.</figcaption>
-                                                            </figure>
-
-                                                            <!-- Read More link -->
-                                                        </div>
-                                                        <div class="item_content"><!-- Intro Image -->
-                                                            <figure class="item_img img-intro img-intro__none">
-                                                                <img src="/assets/images/portfolio/category1/image8.jpg"
-                                                                     alt="">
-                                                                <figcaption>Epsum factorial non deposit quid pro quo hic escorol. Olypian quarrels et gorilla congolium sic ad nauseum. Souvlaki ignitus.</figcaption>
-                                                            </figure>
-
-                                                            <!-- Read More link -->
-                                                        </div>
+                                                    </li>
                                                 </ul>
 
                                             </div>
