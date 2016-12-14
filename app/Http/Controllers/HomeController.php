@@ -24,8 +24,12 @@ class HomeController extends Controller
      */
     public function index()
     {
-    	$worktimes = Timetable::getTimetable();
+//    	$worktimes = Timetable::getTimetable();
 
-        return view('startpage', ['worktimes' => $worktimes]);
+
+		$showcase = view('timetable.showcase');
+		$region = view('region');
+		$googleMap = view('googleMap');
+        return view('startpage', ['showcase' => $showcase,  'region' => $region, 'googleMap' => $googleMap]);
     }
 }

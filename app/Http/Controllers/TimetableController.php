@@ -32,5 +32,9 @@ class TimetableController extends Controller
 		return redirect()->route('timetable::edit', ['timetable' => $id])->with('success', 'success');
 	}
 
+	public function getTimetables()
+	{
+		dump('izsaucas');
+	}
 }
 

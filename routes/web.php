@@ -44,5 +44,5 @@ Route::get('/admin', ['as' => 'admin::edit', 'uses' => 'Admin@show'])->middlewar
 
 Route::get('/productsdelete/{id}', ['as' => 'products::delete', 'uses' => 'Products@delete'])->middleware('auth');
 Route::post('/admin/productscategories', ['as' => 'prodcat::add', 'uses' => 'Products@post'])->middleware('auth');
-
+Route::post('/gettimetables', ['as' => 'timetable::get', 'uses' => '\App\Http\Controllers\TimetableController@getTimetables()']);
 
