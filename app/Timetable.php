@@ -57,11 +57,13 @@ class Timetable extends Authenticatable
 	}
 
 
-	public static function saveTimetable($data)
+	public static function 	saveTimetable($data)
 	{
 		$userID = \Auth::user()->id;
 		$companyData = Company::select('id')->where('user_id', $userID)->first();
-		$companyID = $companyData->getAttribute('id');
+//		$companyID = $companyData->getAttribute('id');
+		$companyID = 1; // Patreiz hardcodets
+
 		$timetable = Timetable::create([
 				'companyID' => $companyID,
 				'region' => $data['region'],

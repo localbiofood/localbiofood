@@ -26,7 +26,6 @@ class HomeController extends Controller
     {
 //    	$worktimes = Timetable::getTimetable();
 
-
 		$showcase = view('timetable.showcase');
 		$region = view('region');
 		$googleMap = view('googleMap');

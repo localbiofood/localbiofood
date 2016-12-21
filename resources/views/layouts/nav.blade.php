@@ -4,16 +4,32 @@
 
                 <li id="iceMenu_285" class="iceMenuLiLevel_1 ">
                     <a href="/" class=" iceMenuTitle ">
-                        <span class="icemega_title icemega_nosubtitle">Home</span>
+                        <span class="icemega_title icemega_nosubtitle">Sākums</span>
+                    </a>
+                </li>
+                <li id="iceMenu_285" class="iceMenuLiLevel_1 ">
+                    <a href="/" class=" iceMenuTitle ">
+                        <span class="icemega_title icemega_nosubtitle">Noderīgi</span>
+                    </a>
+                </li>
+                <li id="iceMenu_285" class="iceMenuLiLevel_1 ">
+                    <a href="/" class=" iceMenuTitle ">
+                        <span class="icemega_title icemega_nosubtitle">Par mums</span>
                     </a>
                 </li>
 
 
                 @if (Auth::check())
                     <li id="iceMenu_285" class="iceMenuLiLevel_1 ">
+                        <a href="{{ route('timetable::list') }}" class="iceMenuTitle">
+                            <span class="icemega_title icemega_nosubtitle">Manas vietas</span>
+                        </a>
+                    </li>
+
+                    <li id="iceMenu_285" class="iceMenuLiLevel_1 ">
                         <a href="{{ url('/logout') }}" class="iceMenuTitle"
                            onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                        <span class="icemega_title icemega_nosubtitle">Izlogoties</span>
+                        <span class="icemega_title icemega_nosubtitle">Iziet</span>
 
                         </a>
                         <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
@@ -21,11 +37,11 @@
                         </form>
                     </li>
                 @else
-                    <li id="iceMenu_285" class="iceMenuLiLevel_1 ">
-                        <a href="/register" class=" iceMenuTitle ">
-                            <span class="icemega_title icemega_nosubtitle">Reģistrēties</span>
-                        </a>
-                    </li>
+                    {{--<li id="iceMenu_285" class="iceMenuLiLevel_1 ">--}}
+                        {{--<a href="/register" class=" iceMenuTitle ">--}}
+                            {{--<span class="icemega_title icemega_nosubtitle">Reģistrēties</span>--}}
+                        {{--</a>--}}
+                    {{--</li>--}}
 
                     <li id="iceMenu_285" class="iceMenuLiLevel_1 ">
                         <a href="/login" class=" iceMenuTitle ">
@@ -59,5 +75,7 @@
                     }
                 });
             });
-        </script></div></nav>
+        </script>
+    </div>
+</nav>
 <div class="clearfix"></div>

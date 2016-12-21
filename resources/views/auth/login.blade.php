@@ -54,6 +54,7 @@
                                     Login
                                 </button>
 
+                                <a href="/register" class="btn btn-secondary"> Reģistrēties</a>
                                 {{--<a class="btn btn-link" href="{{ url('/password/reset') }}">--}}
                                     {{--Forgot Your Password?--}}
                                 {{--</a>--}}

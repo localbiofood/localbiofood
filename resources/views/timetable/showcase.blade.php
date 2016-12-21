@@ -8,24 +8,17 @@
                 <div class="row-fluid">
                     <div class="moduletable center double  span12">
                         <div class="module_container">
-                            <header>
-                                <h1 class="moduleTitle ">
-                                    <span class="item_title_part_0 item_title_part_odd item_title_part_first_half item_title_part_first">Par</span>
-                                    <span class="item_title_part_1 item_title_part_even item_title_part_first_half">Localbiofood</span>
-                                </h1>
-                            </header>
                             <div class="mod-newsflash-adv about mod-newsflash-adv__center double cols-2"
                                  id="module_220">
                                 <div class="module_container">
                                     <header>
                                         <h1 class="moduleTitle  visible-first heading-style-1">
-                                            <span class="item_title_part_0 item_title_part_odd item_title_part_first_half item_title_part_first">Par</span>
                                             <span class="item_title_part_1 item_title_part_even item_title_part_first_half">Localbiofood</span>
                                         </h1>
                                     </header>
                                     <div class="mod-newsflash-adv about mod-newsflash-adv__center double cols-2"
                                          id="module_220">
-                                        <div class="pretext"> Dažādi produkti, dažādas kategorijas</div>
+                                        <div class="pretext"> Labākais no Latvijas laukiem</div>
                                         <div class="row-fluid">
                                             <article class="span6 item item_num0 item__module   visible-first"
                                                      id="item_214">
@@ -67,7 +60,7 @@
                                                     </h3>
                                                     <!-- Introtext -->
                                                     <div class="item_introtext">
-                                                        Vistas gaļa, cūkgaļa, jēra gaļa utt.
+                                                        Vistas gaļa, cūkgaļa, jēra gaļa, liellopu gaļa utt.
                                                     </div>
 
 

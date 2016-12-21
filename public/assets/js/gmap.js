@@ -9,7 +9,7 @@ var googleMap = {
 	initMap: function ()
 	{
 		var zoom = 7;
-		var map = new google.maps.Map(document.getElementById('map'), {
+		var map = new google.maps.Map(document.getElementById('startpageMap'), {
 			center: {lat: 56.949649, lng: 24.105186},
 			zoom: zoom,
 			scrollwheel: false,
@@ -25,8 +25,8 @@ var googleMap = {
 		});
 		var ctaLayer = {};
 		googleMap.setLatviaOverlay(map);
-		googleMap.setRegionListeners(map);
-		googleMap.timetableCloseUp(map)
+		// googleMap.setRegionListeners(map);
+		// googleMap.timetableCloseUp(map)
 		map.setZoom(3);
 
 	},

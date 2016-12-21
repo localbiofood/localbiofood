@@ -1,5 +1,10 @@
 @extends('layouts.app')
+
 @section('googleMap')
+    <div id="startpageMap"></div>
+@endsection
+
+@section('googleMap2')
     <div id="footer">
         <section class="moduletable map">
             <div class="module_container">

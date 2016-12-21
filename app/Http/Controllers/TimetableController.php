@@ -17,7 +17,14 @@ class TimetableController extends Controller
 		$data = Company::companyData();
 		$data['timetable'] = Timetable::getTimetableData($id);
 
-		return view('timetable')->with(['data' => $data]);
+		$googleMap = view('addGoogleMap');
+
+		return view('timetable')->with(['data' => $data, 'googleMap' => $googleMap]);
+	}
+
+	public function edit()
+	{
+
 	}
 
 
@@ -26,10 +33,11 @@ class TimetableController extends Controller
 		$data = $request->except('_token', 'category');
 		$categories = $request->only('category');
 
+
 		Timetable::saveTimetable($data);
 		TimetableCategories::saveCategories($id, $categories);
 
-		return redirect()->route('timetable::edit', ['timetable' => $id])->with('success', 'success');
+		return redirect()->route('timetable::list', ['timetable' => $id])->with('success', 'success');
 	}
 
 	public function getTimetables()
