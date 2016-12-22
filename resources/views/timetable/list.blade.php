@@ -1,17 +1,10 @@
 @extends('layouts.app')
-@section('timetable')
+@section('timetablelist')
 
     <!-- Mainbottom -->
     <div id="content">
         <div class="moduletable center">
             <div class="module_container">
-                <header><h1 class="moduleTitle ">
-                        <span class="item_title_part_0 item_title_part_odd item_title_part_first_half item_title_part_first">Our</span>
-                        <span class="item_title_part_1 item_title_part_even item_title_part_second_half item_title_part_last">Products</span>
-                    </h1></header>
-                <div class="pretext">
-                    Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae.
-                </div>
 
                 <ul class="nav nav-tabs" id="bootstrap_tabs_nav_213">
                     <li class="active"><a data-toggle="tab" href="#tab1-213">Rīgas reģions</a></li>
@@ -21,7 +14,7 @@
                     <li><a data-toggle="tab" href="#tab5-213">Vidzeme</a></li>
                 </ul>
 
-                <table id="example" class="display" cellspacing="0" width="100%">
+                <table id="timetable" class="display" cellspacing="0" width="100%">
                     <thead>
                     <tr>
                         <th></th>
@@ -31,54 +24,7 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>Drēliņu gaļas rūpnīca</td>
-                        <td>Vidzeme</td>
-                        <td>Gaļa</td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>Sienīši Sia</td>
-                        <td>Rīga</td>
-                        <td>Piena produkti</td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>Lapnieki I/k</td>
-                        <td>Vidzeme</td>
-                        <td>Piena produkti</td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>Bērzi</td>
-                        <td>Kurzeme</td>
-                        <td>Piena produkti</td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>Liepas</td>
-                        <td>Latgale</td>
-                        <td>Piena produkti</td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>Liepas</td>
-                        <td>Latgale</td>
-                        <td>Piena produkti</td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>Liepas</td>
-                        <td>Latgale</td>
-                        <td>Piena produkti</td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>Liepas</td>
-                        <td>Latgale</td>
-                        <td>Piena produkti</td>
-                    </tr>
+
                     </tbody>
                 </table>
 

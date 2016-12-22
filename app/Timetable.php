@@ -34,10 +34,10 @@ class Timetable extends Authenticatable
 			LEFT JOIN companies c ON tt.CompanyID = c.id	
 		";
 
-		$res = \DB::select($sql);
+		$result = \DB::select($sql);
 
-		return $res;
-	}
+		return $result;
+		}
 
 	public static function getTimetableData($id)
 	{

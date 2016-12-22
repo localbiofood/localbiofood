@@ -40,9 +40,12 @@ class TimetableController extends Controller
 		return redirect()->route('timetable::list', ['timetable' => $id])->with('success', 'success');
 	}
 
-	public function getTimetables()
+	public function getData()
 	{
+		dd('asdasdas');
 		dump('izsaucas');
 	}
+
+
 }
 
