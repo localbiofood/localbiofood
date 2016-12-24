@@ -8,12 +8,12 @@
                     </a>
                 </li>
                 <li id="iceMenu_285" class="iceMenuLiLevel_1 ">
-                    <a href="/" class=" iceMenuTitle ">
+                    <a href="/usefull" class=" iceMenuTitle ">
                         <span class="icemega_title icemega_nosubtitle">Noderīgi</span>
                     </a>
                 </li>
                 <li id="iceMenu_285" class="iceMenuLiLevel_1 ">
-                    <a href="/" class=" iceMenuTitle ">
+                    <a href="/about" class=" iceMenuTitle ">
                         <span class="icemega_title icemega_nosubtitle">Par mums</span>
                     </a>
                 </li>
@@ -21,7 +21,7 @@
 
                 @if (Auth::check())
                     <li id="iceMenu_285" class="iceMenuLiLevel_1 ">
-                        <a href="{{ route('timetable::list') }}" class="iceMenuTitle">
+                        <a href="{{ route('usertimetable::list') }}" class="iceMenuTitle">
                             <span class="icemega_title icemega_nosubtitle">Manas vietas</span>
                         </a>
                     </li>

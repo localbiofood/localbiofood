@@ -1,11 +1,18 @@
 @extends('layouts.app')
 @section('timetablelist')
 
+
+    @if(session('success'))
+        <div class="alert alert-success m-t-md">
+            Veiksmīgi pievienots
+        </div>
+    @endif
+
+    <h1>Jūsu pievienotās vietas</h1>
     <!-- Mainbottom -->
     <div id="content">
         <div class="moduletable center">
             <div class="module_container">
-
                 <table id="user_timetable" class="display" cellspacing="0" width="100%">
                     <thead>
                     <tr>
@@ -13,6 +20,7 @@
                         <th>Reģions</th>
                         <th>Laiks No.</th>
                         <th>Atrašanās ilgums</th>
+                        <th>Darbības</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -106,10 +114,7 @@
 
                         <div class="clearfix"></div>
                     </div>
-
-
                 </div>
-
                 <div class="clearfix"></div>
             </div>
         </div>

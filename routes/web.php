@@ -17,9 +17,14 @@ Route::group(['middleware' => 'guest'], function () {
 });
 
 
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index');
+Route::get('/usefull', ['as' => 'useful::get', 'uses' => 'UsefullController@show']);
+Route::get('/about', ['as' => 'about::get', 'uses' => 'AboutController@show']);
+Route::get('/timetabledata', ['as' => 'timetabledata::post', 'uses' => 'TimetableController@getData']);
+Route::get('/worktime-locations', ['as' => 'timetabledata::post', 'uses' => 'WorktimeController@getData']);
 
 
 Route::get('newpage', function () {
@@ -38,14 +43,20 @@ Route::get('bio/contact', function(){
 Route::group(['middleware' => 'auth'], function () {
 	Route::get('/profile', ['as' => 'profile', 'uses' => 'UserController@show'])->middleware('auth');
 	Route::post('/profile', ['as' => 'profile::save', 'uses' => 'UserController@save'])->middleware('auth');
-	Route::get('/timetable', ['as' => 'timetable::list', 'uses' => 'TimetableController@show'])->middleware('auth');
-	Route::get('/timetable/{id?}', ['as' => 'timetable::edit', 'uses' => 'TimetableController@edit'])->middleware('auth');
-	Route::post('/timetable', ['as' => 'timetable::post', 'uses' => 'TimetableController@post'])->middleware('auth');
+
+
 	Route::get('/admin', ['as' => 'admin::edit', 'uses' => 'Admin@show'])->middleware('auth');
 
 	Route::get('/productsdelete/{id}', ['as' => 'products::delete', 'uses' => 'Products@delete'])->middleware('auth');
 	Route::post('/admin/productscategories', ['as' => 'prodcat::add', 'uses' => 'Products@post'])->middleware('auth');
 	Route::post('/gettimetables', ['as' => 'timetable::get', 'uses' => '\App\Http\Controllers\TimetableController@getTimetables()']);
+
+	// User timetable
+	Route::post('/usertimetable', ['as' => 'usertimetable::post', 'uses' => 'UserTimeTableController@post']);
+	Route::get('/usertimetable', ['as' => 'usertimetable::list', 'uses' => 'UserTimeTableController@show']);
+	Route::get('/usertimetable/edit/{id?}', ['as' => 'usertimetable::edit', 'uses' => 'UserTimeTableController@edit']);
+	Route::get('/usertimetabledata', ['as' => 'usertimetabledata::post', 'uses' => 'UserTimeTableController@getData']);
+
 });
 
 

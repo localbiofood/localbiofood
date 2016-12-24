@@ -26,6 +26,10 @@ class Timetable extends Authenticatable
 	protected $table = 'timetables';
 
 
+	/**
+	 * @return mixed
+	 * TODO: check if it is even used
+	 */
 	public static function getTimetable()
 	{
 
@@ -41,37 +45,52 @@ class Timetable extends Authenticatable
 
 	public static function getTimetableData($id)
 	{
-
-		$sql = "SELECT tt.event_length, tt.lat, tt.lng, tt.region, tt.time_when, c.city, c.company, c.region, c.description, tt.id
+		$sql = "SELECT tt.event_length, tt.lat, tt.lng, tt.region, tt.time_when, 
+					c.city, c.company, c.description, tt.id
  			FROM timetables tt
 			LEFT JOIN companies c ON tt.CompanyID = c.id	
-			WHERE tt.id = ':timetable_id'
+			WHERE tt.id = :timetable_id
 		";
 
-		$res = \DB::select($sql,
+		$res = \DB::selectOne($sql,
 						   [
 							   'timetable_id' => $id
 						   ]);
 
-		return $res;
+			return $res;
 	}
 
 
-	public static function 	saveTimetable($data)
+	public static function 	saveTimetable($data, $id)
 	{
 		$userID = \Auth::user()->id;
 		$companyData = Company::select('id')->where('user_id', $userID)->first();
 //		$companyID = $companyData->getAttribute('id');
 		$companyID = 1; // Patreiz hardcodets
 
-		$timetable = Timetable::create([
-				'companyID' => $companyID,
-				'region' => $data['region'],
-				'time_when' => $data['time_when'],
-				'event_length' => $data['event_length'],
-				'lat' => $data['lat'],
-				'lng' => $data['lng'],
-						   ]);
+		if ($id === 0)
+		{
+			$timetable = Timetable::create([
+												   'companyID' => $companyID,
+												   'region' => $data['region'],
+												   'time_when' => $data['time_when'],
+												   'event_length' => $data['event_length'],
+												   'lat' => $data['lat'],
+												   'lng' => $data['lng'],
+										   ]);
+		} else {
+			$timetable = Timetable::find($id);
+			$update = [
+					'companyID' => $companyID,
+					'region' => $data['region'],
+					'time_when' => $data['time_when'],
+					'event_length' => $data['event_length'],
+					'lat' => $data['lat'],
+					'lng' => $data['lng'],
+			];
+			$timetable->update($update);
+			$timetable->save();
+		}
 
 		return $timetable;
 	}

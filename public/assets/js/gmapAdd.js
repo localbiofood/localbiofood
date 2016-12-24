@@ -7,87 +7,122 @@ var rigaLocation = {lat: 56.9715833, lng: 23.9901725};
 var googleMapAdd = {
 	initMap: function ()
 	{
-		var mapDiv = document.getElementById('map');
+		var mapDiv = document.getElementById('mapAdd');
 
-		var mapstyled8_snl4g_0 = [
-			{
-				"featureType": "water",
-				"elementType": "geometry",
-				"stylers": [
-					{"visibility": "on"},
-					{"color": "#cde0fd"}
-				]
-			},
-			{
-				"featureType": "landscape",
-				"elementType": "geometry",
-				"stylers": [
-					{"visibility": "on"},
-					{"color": "#e8e7e3"}
-				]
-			},
-			{
-				"featureType": "road.highway",
-				"elementType": "geometry",
-				"stylers": [
-					{"visibility": "on"},
-					{"color": "#bababa"}
-				]
-			},
-			{
-				"featureType": "landscape.natural",
-				"elementType": "geometry",
-				"stylers": [
-					{"color": "#f8f8f6"}
-				]
-			},
-			{
-				"featureType": "poi",
-				"elementType": "geometry",
-				"stylers": [
-					{"visibility": "off"}
-				]
-			},
-			{
-				"featureType": "road.highway",
-				"elementType": "labels",
-				"stylers": [
-					{"lightness": 19},
-					{"saturation": -100}
-				]
-			},
-			{
-				"featureType": "transit.station",
-				"stylers": [
-					{"visibility": "off"}
-				]
-			}
-		];
-		var mapOptions = {
-			// How zoomed in you want the map to start at (always required)
-			zoom: 8,
-			scrollwheel: false,
-			// The latitude and longitude to center the map (always required)
-			center: new google.maps.LatLng(56.9834821, 24.4387936),
-			styles: mapstyled8_snl4g_0,
-		};
-		window.map = new google.maps.Map(mapDiv, mapOptions);
-		var geocoder = new google.maps.Geocoder;
+		if (mapDiv !== null)
+		{
 
-		var input = /** @type {!HTMLInputElement} */(
-				document.getElementById('pac-input'));
+			var mapstyled8_snl4g_0 = [
+				{
+					"featureType": "water",
+					"elementType": "geometry",
+					"stylers": [
+						{"visibility": "on"},
+						{"color": "#cde0fd"}
+					]
+				},
+				{
+					"featureType": "landscape",
+					"elementType": "geometry",
+					"stylers": [
+						{"visibility": "on"},
+						{"color": "#e8e7e3"}
+					]
+				},
+				{
+					"featureType": "road.highway",
+					"elementType": "geometry",
+					"stylers": [
+						{"visibility": "on"},
+						{"color": "#bababa"}
+					]
+				},
+				{
+					"featureType": "landscape.natural",
+					"elementType": "geometry",
+					"stylers": [
+						{"color": "#f8f8f6"}
+					]
+				},
+				{
+					"featureType": "poi",
+					"elementType": "geometry",
+					"stylers": [
+						{"visibility": "off"}
+					]
+				},
+				{
+					"featureType": "road.highway",
+					"elementType": "labels",
+					"stylers": [
+						{"lightness": 19},
+						{"saturation": -100}
+					]
+				},
+				{
+					"featureType": "transit.station",
+					"stylers": [
+						{"visibility": "off"}
+					]
+				}
+			];
+			var mapOptions2 = {
+				// How zoomed in you want the map to start at (always required)
+				zoom: 8,
+				scrollwheel: false,
+				// The latitude and longitude to center the map (always required)
+				center: new google.maps.LatLng(56.9834821, 24.4387936),
+				styles: mapstyled8_snl4g_0,
+			};
+			window.map = new google.maps.Map(mapDiv, mapOptions2);
+			var geocoder = new google.maps.Geocoder;
+
+			var input = /** @type {!HTMLInputElement} */(
+					document.getElementById('pac-input'));
 
 		var autocomplete = new google.maps.places.Autocomplete(input);
 		autocomplete.bindTo('bounds', window.map);
 
 		var infowindow = new google.maps.InfoWindow();
 
-		var marker = new google.maps.Marker({
-			map: map,
-			anchorPoint: new google.maps.Point(0, -29)
+
+		google.maps.event.addListener(map, 'click', function (event)
+		{
+			$lat = event.latLng.lat();
+			$lng = event.latLng.lng();
+			$('#lat').val($lat);
+			$('#lng').val($lng);
+			console.log($lat);
+			console.log($lng);
+			// geocodeLatLng(geocoder, map, $lat, $lng);
+			placeMarker(event.latLng);
+
+			geocoder.geocode({
+				'latLng': event.latLng
+			}, function(results, status) {
+				if (status == google.maps.GeocoderStatus.OK) {
+					if (results[0]) {
+						$('#address').val(results[0].formatted_address);
+						// console.log(results[0].formatted_address);
+					}
+				}
+			});
+
 		});
 
+
+
+		// var coordinates = getCoordinates(map);
+
+		var marker = new google.maps.Marker({
+			map: map,
+			anchorPoint: new google.maps.Point(56.9424014, 24.13745)
+		});
+
+
+
 		autocomplete.addListener('place_changed', function() {
+			console.log('izsaucas');
 			infowindow.close();
 			marker.setVisible(true);
 			var place = autocomplete.getPlace();
@@ -143,18 +178,9 @@ var googleMapAdd = {
 				document.getElementById('address'));
 
 
-		// if ($('#lat').val() != '' && $('#lng').val() != '')
-		// {
-		// 	marker = new google.maps.Marker({
-		// 		// The below line is equivalent to writing:
-		// 		// position: new google.maps.LatLng(-34.397, 150.644)
-		// 		position: new google.maps.LatLng($('#lat').val(), $('#lng').val()),
-		// 		map: window.map
-		// 	});
-		// }
-
 		function geocodeLatLng(geocoder, map, $lat, $lng)
 		{
+			console.log('velvien	s');
 			var latlng = {lat: $lat, lng: $lng};
 			geocoder.geocode({'location': latlng}, function (results, status)
 			{
@@ -199,52 +225,7 @@ var googleMapAdd = {
 		}
 
 
-		google.maps.event.addListener(map, 'click', function (event)
-		{
-			// $lat = event.latLng.lat();
-			// $lng = event.latLng.lng();
-			// $('#lat').val($lat);
-			// $('#lng').val($lng);
-			// // geocodeLatLng(geocoder, map, $lat, $lng);
-			//
-			// placeMarker(event.latLng);
-		});
+		}
 	},
-
-	zoomRegion: function (region)
-	{
-		if (typeof closeUp === 'undefined')
-		{
-			closeUp = 8;
-		}
-
-		switch (region)
-		{
-			case 'Kurzeme':
-				googleMap.setActiveMenuItem($('#menu_kurzeme'));
-				window.map.setZoom(closeUp);
-				window.map.panTo(kurzemeLocation);
-				break;
-			case 'Latgale':
-				googleMap.setActiveMenuItem($('#menu_latgale'));
-				window.map.panTo(latgaleLocation);
-				window.map.setZoom(closeUp);
-				break;
-			case 'Riga':
-				googleMap.setActiveMenuItem($('#menu_riga'));
-				window.map.panTo(rigaLocation);
-				window.map.setZoom(closeUp);
-				break;
-			case 'Vidzeme':
-				googleMap.setActiveMenuItem($('#menu_vidzeme'));
-				window.map.panTo(vidzemeLocation);
-				window.map.setZoom(closeUp);
-				break;
-			case 'Zemgale':
-				googleMap.setActiveMenuItem($('#menu_zemgale'));
-				window.map.panTo(zemgaleLocation);
-				window.map.setZoom(closeUp);
-		}
-	}
 };
 

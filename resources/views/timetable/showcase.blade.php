@@ -1,6 +1,5 @@
 @extends('timetable.list')
 @section('showcase')
-
     <!-- Showcase -->
     <div id="showcase">
         <div class="row-container">
@@ -120,6 +119,84 @@
                                                 <div class="clearfix"></div>
                                             </article>
                                         </div>
+                                        <div class="row-fluid">
+                                            <article class="span6 item item_num4 item__module   visible-first"
+                                                     id="item_214">
+
+                                                <!-- Intro Image -->
+                                                <figure class="item_img img-intro img-intro__none">
+                                                    <img src="/assets/images/icons/maize.png" alt="">
+                                                </figure>
+
+                                                <div class="item_content">
+
+                                                    <!-- Item title -->
+                                                    <h3 class="item_title item_title__center double visible-first heading-style-3">
+                                                        <span class="item_title_part_0 item_title_part_odd item_title_part_first_half item_title_part_first">Augļi</span>
+                                                    </h3>
+                                                    <!-- Introtext -->
+                                                    <div class="item_introtext">
+                                                        Maize un graudu izstrādājumi
+                                                    </div>
+
+
+                                                    <!-- Read More link -->
+                                                </div>
+                                                <div class="clearfix"></div>
+                                            </article>
+
+                                            <article class="span6 item item_num5 item__module   visible-first"
+                                                     id="item_215">
+                                                <!-- Intro Image -->
+                                                <figure class="item_img img-intro img-intro__none">
+                                                    <img src="/assets/images/icons/medus.png" alt="">
+                                                </figure>
+
+                                                <div class="item_content">
+
+                                                    <!-- Item title -->
+                                                    <h3 class="item_title item_title__center double visible-first heading-style-3">
+                                                        <span class="item_title_part_0 item_title_part_odd item_title_part_first_half item_title_part_first">Gaļas produkti</span>
+                                                    </h3>
+                                                    <!-- Introtext -->
+                                                    <div class="item_introtext">
+                                                        Medus un biškopības produkti
+                                                    </div>
+
+
+                                                    <!-- Read More link -->
+                                                </div>
+                                                <div class="clearfix"></div>
+                                            </article>
+                                        </div>
+
+                                        <div class="row-fluid">
+                                            <article class="span6 item item_num6 item__module   visible-first"
+                                                     id="item_215"
+                                                    style="width:55%"
+                                                >
+                                                <!-- Intro Image -->
+                                                <figure class="item_img img-intro img-intro__none">
+                                                    <img src="/assets/images/icons/zivs.png" alt="">
+                                                </figure>
+
+                                                <div class="item_content">
+
+                                                    <!-- Item title -->
+                                                    <h3 class="item_title item_title__center double visible-first heading-style-3">
+                                                        <span class="item_title_part_0 item_title_part_odd item_title_part_first_half item_title_part_first">Gaļas produkti</span>
+                                                    </h3>
+                                                    <!-- Introtext -->
+                                                    <div class="item_introtext">
+                                                        Zivis un zivju izstrādājumi
+                                                    </div>
+
+                                                    <!-- Read More link -->
+                                                </div>
+                                                <div class="clearfix"></div>
+                                            </article>
+                                        </div>
+
                                         <div class="clearfix"></div>
 
                                     </div>
