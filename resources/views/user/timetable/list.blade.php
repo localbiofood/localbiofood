@@ -9,6 +9,8 @@
     @endif
 
     <h1>Jūsu pievienotās vietas</h1>
+
+    <a href="{{route('usertimetable::edit', ['id' => 0])}}" class="btn btn-primary">Pievienot jaunu</a>
     <!-- Mainbottom -->
     <div id="content">
         <div class="moduletable center">

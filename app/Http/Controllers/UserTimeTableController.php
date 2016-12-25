@@ -24,6 +24,10 @@ class UserTimeTableController extends Controller
 		$data = Company::companyData();
 		$timetable = Timetable::getTimetableData($id);
 
+		if ($timetable === null)
+		{
+			$timetable = new Timetable();
+		}
 		$googleMap = view('addGoogleMap');
 
 		return view('user.timetable.edit', [$id])
