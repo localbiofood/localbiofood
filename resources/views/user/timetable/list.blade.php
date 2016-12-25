@@ -18,6 +18,7 @@
                     <tr>
                         <th>Uzņēmums</th>
                         <th>Reģions</th>
+                        <th>Kategorijas</th>
                         <th>Laiks No.</th>
                         <th>Atrašanās ilgums</th>
                         <th>Darbības</th>

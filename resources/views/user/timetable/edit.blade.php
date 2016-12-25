@@ -99,7 +99,7 @@
                             <label for="region" class="col-md-2 control-label">Adrese: </label>
                             <div class="col-md-10">
                                 <div id="address">
-                                    <input id="address2" id="pac-input" class="controls form-control" type="text"
+                                    <input id="pac-input" class="controls form-control" type="text"
                                            placeholder="Enter a location">
                                     <input type="hidden" name="lat" id="lat">
                                     <input type="hidden" name="lng" id="lng">
@@ -115,14 +115,14 @@
                         <div class="form-group @if ($errors->has('event_length')) has-error @endif">
                             <label for="region" class="col-md-2 control-label">Produktu kategorijas</label>
                             <div class="col-md-10">
-                                <select class="form-control" name="event_length" id="event_length">
-                                    <option value="0">Dažādi augļi, āboli, bumbieri, banāni utt.</option>
-                                    <option value="720">Vistas gaļa, cūkgaļa, jēra gaļa, liellopu gaļa utt.</option>
-                                    <option value="720">Siers, piens, jogurti, biezpiens utt.</option>
-                                    <option value="0">Burkāni, gurķi, redīsi, sīpoli utt</option>
-                                    <option value="0">Zivis un zivju izstrādājumi</option>
-                                    <option value="0">Medus un biškopības produkti</option>
-                                    <option value="0">Maize un graudu izstrādājumi</option>
+                                <select class="form-control" name="category[code]" id="code">
+                                    <option value="fruits">Dažādi augļi, āboli, bumbieri, banāni utt.</option>
+                                    <option value="meat">Vistas gaļa, cūkgaļa, jēra gaļa, liellopu gaļa utt.</option>
+                                    <option value="milk_products">Siers, piens, jogurti, biezpiens utt.</option>
+                                    <option value="vegetables">Burkāni, gurķi, redīsi, sīpoli utt</option>
+                                    <option value="fish">Zivis un zivju izstrādājumi</option>
+                                    <option value="honey">Medus un biškopības produkti</option>
+                                    <option value="bread">Maize un graudu izstrādājumi</option>
                                 </select>
                                 @if ($errors->has('event_length'))
                                     <span class="help-block">{{ $errors->first('event_length')}}</span>
@@ -132,28 +132,28 @@
                     </div>
 
                     <div class="row">
-                        <div class="form-group @if ($errors->has('Address')) has-error @endif">
+                        <div class="form-group @if ($errors->has('image')) has-error @endif">
                             <label for="region" class="col-md-2 control-label">Produkta attēls: </label>
                             <div class="col-md-10">
-                                <div id="address">
+                                <div id="image">
                                     <input type="file">
                                 </div>
-                                @if ($errors->has('Address'))
-                                    <span class="help-block">{{ $errors->first('Address')}}</span>
+                                @if ($errors->has('image'))
+                                    <span class="help-block">{{ $errors->first('image')}}</span>
                                 @endif
                             </div>
                         </div>
                     </div>
 
                     <div class="row">
-                        <div class="form-group @if ($errors->has('Address')) has-error @endif">
+                        <div class="form-group @if ($errors->has('description')) has-error @endif">
                             <label for="region" class="col-md-2 control-label">Produkta apraksts: </label>
                             <div class="col-md-10">
-                                <div id="address">
+                                <div id="description">
                                     <textarea name="" id="" class="form-control" cols="30" rows="3"></textarea>
                                 </div>
-                                @if ($errors->has('Address'))
-                                    <span class="help-block">{{ $errors->first('Address')}}</span>
+                                @if ($errors->has('description'))
+                                    <span class="help-block">{{ $errors->first('description')}}</span>
                                 @endif
                             </div>
                         </div>

@@ -15,10 +15,5 @@ class UsefullController extends Controller
 	{
 		return view('usefull');
 	}
-
-	public function edit()
-	{
-
-	}
 }
 

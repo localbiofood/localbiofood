@@ -24,7 +24,7 @@
 
                                                 <!-- Intro Image -->
                                                 <figure class="item_img img-intro img-intro__none">
-                                                    <img src="/assets/images/icons/icon1.png" alt="">
+                                                    <img src="/assets/images/icons/fruits.png" alt="">
                                                 </figure>
 
                                                 <div class="item_content">
@@ -48,7 +48,7 @@
                                                      id="item_215">
                                                 <!-- Intro Image -->
                                                 <figure class="item_img img-intro img-intro__none">
-                                                    <img src="/assets/images/icons/icon2.png" alt="">
+                                                    <img src="/assets/images/icons/meats.png" alt="">
                                                 </figure>
 
                                                 <div class="item_content">
@@ -74,7 +74,7 @@
 
                                                 <!-- Intro Image -->
                                                 <figure class="item_img img-intro img-intro__none">
-                                                    <img src="/assets/images/icons/icon3.png" alt="">
+                                                    <img src="/assets/images/icons/milk.png" alt="">
                                                 </figure>
 
                                                 <div class="item_content">
@@ -99,7 +99,7 @@
 
                                                 <!-- Intro Image -->
                                                 <figure class="item_img img-intro img-intro__none">
-                                                    <img src="/assets/images/icons/icon4.png" alt="">
+                                                    <img src="/assets/images/icons/vegetables.png" alt="">
                                                 </figure>
 
                                                 <div class="item_content">
@@ -125,7 +125,7 @@
 
                                                 <!-- Intro Image -->
                                                 <figure class="item_img img-intro img-intro__none">
-                                                    <img src="/assets/images/icons/maize.png" alt="">
+                                                    <img src="/assets/images/icons/bread.png" alt="">
                                                 </figure>
 
                                                 <div class="item_content">
@@ -149,7 +149,7 @@
                                                      id="item_215">
                                                 <!-- Intro Image -->
                                                 <figure class="item_img img-intro img-intro__none">
-                                                    <img src="/assets/images/icons/medus.png" alt="">
+                                                    <img src="/assets/images/icons/honey.png" alt="">
                                                 </figure>
 
                                                 <div class="item_content">
@@ -177,7 +177,7 @@
                                                 >
                                                 <!-- Intro Image -->
                                                 <figure class="item_img img-intro img-intro__none">
-                                                    <img src="/assets/images/icons/zivs.png" alt="">
+                                                    <img src="/assets/images/icons/fish.png" alt="">
                                                 </figure>
 
                                                 <div class="item_content">

@@ -39,8 +39,8 @@ class UserTimeTableController extends Controller
 		$categories = $request->only('category');
 
 
-		Timetable::saveTimetable($data, array_get($data, 'id', 0));
-//		TimetableCategories::saveCategories($id, $categories);
+		$timetable = Timetable::saveTimetable($data, array_get($data, 'id', 0));
+		TimetableCategories::saveCategories($timetable, $categories);
 
 		return redirect()->route('usertimetable::list')->with('success', 'success');
 	}
@@ -48,9 +48,10 @@ class UserTimeTableController extends Controller
 	public function getData()
 	{
 		$sql = "SELECT tt.id, tt.event_length, tt.lat, tt.lng, tt.region, tt.time_when, 
-				tt.time_when as test, c.company
+				tt.time_when as test, c.company, tc.code
  			FROM timetables tt 
  			LEFT JOIN companies c ON tt.CompanyID = c.id 
+ 			LEFT JOIN timetable_categories tc ON tc.timetable_id = tt.id 
 		";
 
 		$count = Timetable::select('id')->get()->count();
@@ -62,9 +63,11 @@ class UserTimeTableController extends Controller
 		foreach($sql as $key => $row )
 		{
 			$btn = '<a href="' . route('usertimetable::edit') . '/' . $row->id . '" class="btn btn-xs btn-primary"> Labot </a>';
+			$categoryImage = ($row->code !== null) ?  "<img src='/assets/images/icons/{$row->code}.png' style='height:40px' alt='{$row->code}'>" : '';
 			$decorated = [];
 			$decorated[] 			=  $row->company  ;
 			$decorated[] 			=  $row->region;
+			$decorated[] 			=  $categoryImage;
 			$decorated[] 			=  $row->time_when;
 			$decorated[] 			=  $row->event_length  ;
 			$decorated[] 			=  $btn;

@@ -28,12 +28,14 @@ class HomeController extends Controller
 
 		$showcase = view('timetable.showcase', ['worktimes' => $worktimes]);
 		$region = view('region');
+		$promotion = view('promotion');
 		$googleMap = view('googleMap', ['worktimes' => $worktimes]);
         return view('startpage', [
         		'showcase' => $showcase,
 				'region' => $region,
 				'worktimes' => $worktimes,
-				'googleMap' => $googleMap
+				'googleMap' => $googleMap,
+				'promotion' => $promotion,
 		]);
     }
 }

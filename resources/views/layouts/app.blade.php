@@ -13,9 +13,9 @@
 
     <link rel="stylesheet" href="/assets/css/template.css" type="text/css"/>
     {{--<link rel="stylesheet" href="/assets/modules/mod_tm_ajax_contact_form/css/style.css" type="text/css"/>--}}
-    {{--<link rel="stylesheet" href="/assets/css/caroufredsel.css" type="text/css"/>--}}
-    {{--<link rel="stylesheet" href="/assets/modules/mod_tm_parallax/css/rd-parallax.css" type="text/css"/>--}}
-    {{--<link rel="stylesheet" href="/assets/css/camera.css" type="text/css"/>--}}
+    <link rel="stylesheet" href="/assets/css/caroufredsel.css" type="text/css"/>
+    <link rel="stylesheet" href="/assets/modules/mod_tm_parallax/css/rd-parallax.css" type="text/css"/>
+    <link rel="stylesheet" href="/assets/css/camera.css" type="text/css"/>
     {{--<link rel="stylesheet" href="/assets/modules/mod_icemegamenu/css/navbar.css" type="text/css"/>--}}
 
     <script type='text/javascript'
@@ -41,9 +41,9 @@
     {{--<script src="/assets/modules/mod_tm_style_switcher/js/style_switcher_demo.js" type="text/javascript"></script>--}}
     {{--<script src="/assets/js/jquery.validate.min.js" type="text/javascript"></script>--}}
     {{--<script src="/assets/js/additional-methods.min.js" type="text/javascript"></script>--}}
-    {{--<script src="/assets/modules/mod_caroufredsel/js/jquery.caroufredsel.js" type="text/javascript"></script>--}}
-    {{--<script src="/assets/modules/mod_tm_parallax/js/jquery.rd-parallax.js" type="text/javascript"></script>--}}
-    {{--<script src="/assets/js/camera.min.js" type="text/javascript"></script>--}}
+    <script src="/assets/modules/mod_caroufredsel/js/jquery.caroufredsel.js" type="text/javascript"></script>
+    <script src="/assets/modules/mod_tm_parallax/js/jquery.rd-parallax.js" type="text/javascript"></script>
+    <script src="/assets/js/camera.min.js" type="text/javascript"></script>
     {{--<script src="/assets/modules/mod_icemegamenu/js/menu.js" type="text/javascript"></script>--}}
     {{--<script src="/assets/modules/mod_icemegamenu/js/jquery.rd-navbar.js" type="text/javascript"></script>--}}
 
@@ -106,6 +106,8 @@
             @include('layouts/nav')
             <div class="clearfix"></div>
         </div>
+
+        @yield('promotion')
 
         @yield('showcase')
         @yield('timetablelist')
