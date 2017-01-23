@@ -79,30 +79,11 @@ var googleMap = {
 
 			window.map = new google.maps.Map(mapDiv, mapOptions);
 
-			var geocoder = new google.maps.Geocoder;
-
 			var input = /** @type {!HTMLInputElement} */(
 					document.getElementById('pac-input'));
 
 
 			setLocations(map);
-
-			// var coordinates = getCoordinates(map);
-
-			// var marker = new google.maps.Marker({
-			// 	map: map,
-			// 	anchorPoint: new google.maps.Point(56.9424014, 24.13745)
-
-
-			// if ($('#lat').val() != '' && $('#lng').val() != '')
-			// {
-			// 	marker = new google.maps.Marker({
-			// 		// The below line is equivalent to writing:
-			// 		// position: new google.maps.LatLng(-34.397, 150.644)
-			// 		position: new google.maps.LatLng($('#lat').val(), $('#lng').val()),
-			// 		map: window.map
-			// 	});
-			// }
 
 			function geocodeLatLng(geocoder, map, $lat, $lng)
 			{
@@ -151,13 +132,12 @@ var googleMap = {
 							// arr.push(parsed[x]);
 							lat = parsed[x]['lat'];
 							lng = parsed[x]['lng'];
+							description = parsed[x]['description'];
 							// locations = ['asd'];
-							locations.push(['mautas', lat, lng, 4]);
-
+							locations.push(['mautas', lat, lng, 4, description]);
 						}
 
 
-						console.log(locations);
 
 						var infowindow = new google.maps.InfoWindow();
 
@@ -180,12 +160,16 @@ var googleMap = {
 								iconimagemap: "13,0,15,1,16,2,17,3,18,4,18,5,19,6,19,7,19,8,19,9,19,10,19,11,19,12,19,13,18,14,18,15,17,16,16,17,15,18,14,19,14,20,13,21,13,22,12,23,12,24,12,25,12,26,11,27,11,28,11,29,11,30,11,31,11,32,11,33,8,33,8,32,8,31,8,30,8,29,8,28,8,27,8,26,7,25,7,24,7,23,6,22,6,21,5,20,5,19,4,18,3,17,2,16,1,15,1,14,0,13,0,12,0,11,0,10,0,9,0,8,0,7,0,6,1,5,1,4,2,3,3,2,4,1,6,0,13,0",
 
 							}));
+							var location = locations[i][0];
+							var description = locations[i][3];
+
+							console.log(locations);
 
 							google.maps.event.addListener(marker, 'click', (function (marker, i)
 							{
-								return function ()
+								return function (infoText, stuff)
 								{
-									infowindow.setContent(locations[i][0]);
+									infowindow.setContent(location + 'content vai loti gars teksts content vai loti gars teksts content vai loti gars teksts content vai loti gars teksts content vai loti gars teksts content vai loti gars teksts ');
 									infowindow.open(map, marker);
 								}
 							})(marker, i));

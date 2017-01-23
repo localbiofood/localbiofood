@@ -2,64 +2,56 @@
     <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
     <script type="text/javascript">
     </script>
-    <meta name="generator" content="Joomla! - Open Source Content Management"/>
+    <meta name="generator" content="localbiofood"/>
     <title>Localbiofood</title>
 
-    {{--<link rel="stylesheet" href="/assets/css/chosen.css" type="text/css"/>--}}
-    {{--<link rel="stylesheet" href="/assets/css/layout.css" type="text/css"/>--}}
-    {{--<link rel="stylesheet" href="/assets/css/jquery.fancybox.css" type="text/css"/>--}}
-    {{--<link rel="stylesheet" href="/assets/css/jquery.fancybox-buttons.css" type="text/css"/>--}}
-    {{--<link rel="stylesheet" href="/assets/css/jquery.fancybox-thumbs.css" type="text/css"/>--}}
+    {{-- BOOTSTRAP CSS --}}
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/css/bootstrap-datetimepicker.min.css" />
 
     <link rel="stylesheet" href="/assets/css/template.css" type="text/css"/>
-    {{--<link rel="stylesheet" href="/assets/modules/mod_tm_ajax_contact_form/css/style.css" type="text/css"/>--}}
-    <link rel="stylesheet" href="/assets/css/caroufredsel.css" type="text/css"/>
-    <link rel="stylesheet" href="/assets/modules/mod_tm_parallax/css/rd-parallax.css" type="text/css"/>
-    <link rel="stylesheet" href="/assets/css/camera.css" type="text/css"/>
-    {{--<link rel="stylesheet" href="/assets/modules/mod_icemegamenu/css/navbar.css" type="text/css"/>--}}
-
-    <script type='text/javascript'
-            src='http://maps.google.com/maps/api/js?v=3.exp&amp;language=en-GB&amp;libraries=places&amp;sensor=false&key=AIzaSyCPGgBHAlfYvfitdF967fvGW6YRU0WbuCE'></script>
 
 
-    {{--<script src="/assets/js/jquery.min.js" type="text/javascript"></script>--}}
-    {{--<script src="/assets/js/jquery-noconflict.js" type="text/javascript"></script>--}}
-    {{--<script src="/assets/js/jquery-migrate.min.js" type="text/javascript"></script>--}}
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.css" type="text/css"/>
+    <link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap-theme.css" type="text/css"/>
+    {{--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/css/bootstrap-datetimepicker.min.css" />--}}
 
-    <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-    <!-- Optional theme -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
-    <!-- Latest compiled and minified JavaScript -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-
-
-
-    {{--<script src="/assets/js/caption.js" type="text/javascript"></script>--}}
-    {{--<script src="/assets/js/chosen.jquery.min.js" type="text/javascript"></script>--}}
-    {{--<script src="/assets/modules/mod_tm_style_switcher/js/style_switcher_demo.js" type="text/javascript"></script>--}}
-    {{--<script src="/assets/js/jquery.validate.min.js" type="text/javascript"></script>--}}
-    {{--<script src="/assets/js/additional-methods.min.js" type="text/javascript"></script>--}}
-    <script src="/assets/modules/mod_caroufredsel/js/jquery.caroufredsel.js" type="text/javascript"></script>
-    <script src="/assets/modules/mod_tm_parallax/js/jquery.rd-parallax.js" type="text/javascript"></script>
-    <script src="/assets/js/camera.min.js" type="text/javascript"></script>
-    {{--<script src="/assets/modules/mod_icemegamenu/js/menu.js" type="text/javascript"></script>--}}
-    {{--<script src="/assets/modules/mod_icemegamenu/js/jquery.rd-navbar.js" type="text/javascript"></script>--}}
-
-    {{-- Datatable --}}
+    {{-- DATATABLE CSS --}}
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.13/css/jquery.dataTables.min.css" type="text/css"/>
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.12/datatables.min.css"/>
     <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.13/css/jquery.dataTables.css">
+
+    {{-- GOOGLE MAP --}}
+    <script type='text/javascript'
+            src='http://maps.google.com/maps/api/js?v=3.exp&amp;language=en-GB&amp;libraries=places&amp;key=AIzaSyCPGgBHAlfYvfitdF967fvGW6YRU0WbuCE'></script>
+
+    {{-- MOMENT --}}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.6/moment.min.js"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/js/bootstrap-datetimepicker.min.js"></script>
+
+
+    {{-- TEMPLATE JS --}}
+    <script src="/assets/modules/mod_caroufredsel/js/jquery.caroufredsel.js" type="text/javascript"></script>
+
+    {{-- DATA TABLES --}}
     <script src="https://cdn.datatables.net/1.10.13/js/jquery.dataTables.min.js"></script>
     <script type="text/javascript" charset="utf8" src="//cdn.datatables.net/1.10.13/js/jquery.dataTables.js"></script>
 
+    {{-- FONTS --}}
     <link href='//fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic'
           rel='stylesheet'
           type='text/css'>
     <link href='//fonts.googleapis.com/css?family=Asap:400,400italic,700,700italic' rel='stylesheet' type='text/css'>
 
 
+    {{-- TIMEPICKER JS --}}
+    <script src="/assets/plugins/ericjgagnon-wickedpicker-5080539/dist/wickedpicker.min.js"
+            type="text/javascript"></script>
     <script src="/assets/js/gmap.js" type="text/javascript"></script>
     <script src="/assets/js/gmapAdd.js" type="text/javascript"></script>
 
@@ -83,9 +75,8 @@
 		});
 
     </script>
-
-
     <script src="/assets/js/main.js" type="text/javascript"></script>
+
 </head>
 
 <body class="body__home option-com_content view-category task- itemid-101">
@@ -107,11 +98,11 @@
             <div class="clearfix"></div>
         </div>
 
-        @yield('promotion')
+    @yield('promotion')
 
-        @yield('showcase')
-        @yield('timetablelist')
-        @yield('content')
+    @yield('showcase')
+    @yield('timetablelist')
+    @yield('content')
 
     <!-- Mainbottom -->
         <!-- Bottom -->
@@ -145,3 +136,5 @@
 <div id="fixed-sidebar-right">
     <div class="moduletable " id="module_181">
     </div>
+</div>
+</body>

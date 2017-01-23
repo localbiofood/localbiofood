@@ -7,19 +7,24 @@ use App\Company;
 use App\Timetable;
 use App\TimetableCategories;
 use Illuminate\Http\Request;
+use Carbon\Carbon;
 
 class TimetableController extends Controller
 {
 
-//	public function show(Request $request, $id = null)
-//	{
+	public function show(Request $request, $id = null)
+	{
 //		$data = Company::companyData();
 //		$data['timetable'] = Timetable::getTimetableData($id);
 //
 //		$googleMap = view('addGoogleMap');
-//
-//		return view('timetable')->with(['data' => $data, 'googleMap' => $googleMap]);
-//	}
+
+		return view('product.show')
+				->with([
+//						'data' => $data,
+//						'googleMap' => $googleMap
+					   ]);
+	}
 
 	public function edit()
 	{
@@ -32,34 +37,40 @@ class TimetableController extends Controller
 
 	}
 
-
-
-
 	public function getData()
 	{
-		$sql = "SELECT tt.event_length, tt.lat, tt.lng, tt.region, tt.time_when, 
-				tt.time_when as test, c.company, tc.code
+		$sql = "SELECT tt.lat, tt.lng, tt.region, c.company, tt.id, tt.starttime, tt.endtime, tt.id
  			FROM timetables tt 
  			LEFT JOIN companies c ON tt.CompanyID = c.id 
- 			LEFT JOIN timetable_categories tc ON tt.id = tc.timetable_id
+ 			ORDER BY tt.starttime DESC
 		";
 
 		$count = Timetable::select('id')->get()->count();
 
 		$sql = \DB::select($sql);
 
-
 		$results = [];
 		foreach($sql as $key => $row )
 		{
-			$categoryImage = ($row->code !== null) ?  "<img src='/assets/images/icons/{$row->code}.png' style='height:40px' alt='{$row->code}'>" : '';
+			$categoriesSql = "SELECT tc.code 
+ 				FROM timetable_categories tc
+ 				WHERE tc.id = :timetable_id
+			";
+			$categoriesResult = \DB::select($categoriesSql, ['timetable_id' => $row->id]);
+			$categoryImage = '';
+			foreach($categoriesResult as $row2)
+			{
+				$categoryImage .= ($row2->code !== null) ?  "<img src='/assets/images/icons/{$row2->code}.png' style='height:40px' alt='{$row2->code}'>" : '';
+			}
+			$btn = '<a href="' . route('timetable::show', ['id' => $row->id]) . '" class="btn btn-xs btn-secondary"> Atvērt </a>';
 
 			$decorated = [];
-			$decorated[] 			=  $row->company  ;
+			$decorated[] 			=  $this->coatLink($row->company, route('timetable::list', ['id' => $row->id]));
 			$decorated[] 			=  $row->region;
 			$decorated[] 			=  $categoryImage;
-			$decorated[] 			=  $row->time_when;
-			$decorated[] 			=  $row->event_length  ;
+			$decorated[] 			=  Carbon::parse($row->starttime)->format('d-m-Y H:s');
+			$decorated[] 			=  Carbon::parse($row->endtime	)->format('d-m-Y H:s');
+			$decorated[] 			=  $btn  ;
 			$results[] = $decorated;
 		}
 
@@ -73,6 +84,13 @@ class TimetableController extends Controller
 
 		return response()
 				->json($dtResult);
+	}
+
+	public function coatLink($text, $target)
+	{
+		$link = "<a href='{$target}'>$text</a>";
+
+		return $link;
 	}
 }
 

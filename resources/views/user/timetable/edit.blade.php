@@ -9,6 +9,17 @@
                 </div>
             @endif
 
+            @if (count($errors) > 0)
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
+
+
             <input type="hidden" name="lat" value="">
             <input type="hidden" name="lng" value="">
             <div class="row">
@@ -27,7 +38,7 @@
             </div>
 
             <div class="col-md-6">
-                <form action="{{route('usertimetable::post', ['id' => $data->id])}}" method="POST" class="">
+                <form action="{{route('usertimetable::post')}}" method="POST" class="">
                     {{ csrf_field() }}
                     <div class="row">
                         <div class="form-group @if ($errors->has('region')) has-error @endif">
@@ -47,52 +58,26 @@
                         </div>
                     </div>
 
-                    <row>
-                        <p style="color:red"> Te būs kalendārs</p>
-                    </row>
                     <div class="row">
-                        <div class="form-group @if ($errors->has('time_when')) has-error @endif" id="timeBlock">
-                            <label for="time_when" class="col-md-2 control-label">No:</label>
-                            <div class="col-md-6">
-                                <input type="text"
-                                       class="form-control time start"
-                                       id="time_when"
-                                       name="time_when"
-                                       value="{{array_get($data, 'time_when', '')}}"
-                                       placeholder="Laiks no...">
-                                @if ($errors->has('time_when'))
-                                    <span class="help-block">{{ $errors->first('time_when')}}</span>
-                                @endif
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="form-group @if ($errors->has('event_length')) has-error @endif">
+                        <div class="col-md-12">
                             <label for="region" class="col-md-2 control-label">Paredzētais ilgums:</label>
                             <div class="col-md-10">
-                                <select class="form-control" name="event_length" id="event_length">
-                                    <option value="5">5m</option>
-                                    <option value="10">10m</option>
-                                    <option value="15">15m</option>
-                                    <option value="20">20m</option>
-                                    <option value="25">25m</option>
-                                    <option value="30">30m</option>
-                                    <option value="45">45m</option>
-                                    <option value="60">1h</option>
-                                    <option value="90">1h 30m</option>
-                                    <option value="180">2h</option>
-                                    <option value="360">4h</option>
-                                    <option value="720">8h</option>
-                                    <option value="0">8h+</option>
-                                </select>
-                                @if ($errors->has('event_length'))
-                                    <span class="help-block">{{ $errors->first('event_length')}}</span>
-                                @endif
+                                <input type="text" name="date" id="date" class="datepicker">
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <label for="region" class="col-sm-6 control-label">Sākuma laiks:</label>
+                            <div class="col-sm-6">
+                                <input type="text" name="time" id="time" class="datepicker">
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <label for="region" class="col-sm-6 control-label">Beigu laiks:</label>
+                            <div class="col-sm-6">
+                                <input type="text" name="time2" id="time2" class="datepicker">
                             </div>
                         </div>
                     </div>
-
 
                     <div class="row">
                         <div class="form-group @if ($errors->has('Address')) has-error @endif">
@@ -100,9 +85,9 @@
                             <div class="col-md-10">
                                 <div id="address">
                                     <input id="pac-input" class="controls form-control" type="text"
-                                           placeholder="Enter a location">
-                                    <input type="hidden" name="lat" id="lat">
-                                    <input type="hidden" name="lng" id="lng">
+                                           placeholder="Enter a location" >
+                                    <input type="hidden" name="lat" id="lat" value="{{$data->lat}}">
+                                    <input type="hidden" name="lng" id="lng" value="{{$data->lng}}">
                                 </div>
                                 @if ($errors->has('Address'))
                                     <span class="help-block">{{ $errors->first('Address')}}</span>
@@ -116,13 +101,9 @@
                             <label for="region" class="col-md-2 control-label">Produktu kategorijas</label>
                             <div class="col-md-10">
                                 <select class="form-control" name="category[code]" id="code">
-                                    <option value="fruits">Dažādi augļi, āboli, bumbieri, banāni utt.</option>
-                                    <option value="meat">Vistas gaļa, cūkgaļa, jēra gaļa, liellopu gaļa utt.</option>
-                                    <option value="milk_products">Siers, piens, jogurti, biezpiens utt.</option>
-                                    <option value="vegetables">Burkāni, gurķi, redīsi, sīpoli utt</option>
-                                    <option value="fish">Zivis un zivju izstrādājumi</option>
-                                    <option value="honey">Medus un biškopības produkti</option>
-                                    <option value="bread">Maize un graudu izstrādājumi</option>
+                                    @foreach($code as $key => $value)
+                                        <option @if($data->code === $key) selected="selected" @endif value="{{$key}}">{{$value}}</option>
+                                    @endforeach
                                 </select>
                                 @if ($errors->has('event_length'))
                                     <span class="help-block">{{ $errors->first('event_length')}}</span>
@@ -150,7 +131,7 @@
                             <label for="region" class="col-md-2 control-label">Produkta apraksts: </label>
                             <div class="col-md-10">
                                 <div id="description">
-                                    <textarea name="" id="" class="form-control" cols="30" rows="3"></textarea>
+                                    <textarea name="description" id="" class="form-control" cols="30" rows="3">{{$data->description}}</textarea>
                                 </div>
                                 @if ($errors->has('description'))
                                     <span class="help-block">{{ $errors->first('description')}}</span>
@@ -195,4 +176,59 @@
         </div>
     </div>
 
+    <script>
+		$(function () {
+//			$('.timepicker').wickedpicker();
+
+			moment.locale('en', {
+				week: { dow: 1 } // Monday is the first day of the week
+			});
+
+			var now = moment();
+
+			console.log(now);
+
+            $('#date').datetimepicker({
+                format: 'DD-MM-YYYY',
+            });
+
+//            $('#datepicker').datetimepicker({
+//				format: 'DD-MM-YYYY H:s',
+//				format: 'DD-MM-YYYY H:s',
+//				sideBySide: true,
+//                minDate: now,
+//            });
+
+//            var momentDate = moment($('#datepicker').val(), 'DD-MM-YYYY H:s');
+//            console.log(momentDate);
+
+
+			$('#time').datetimepicker({
+				format: 'H:s',
+			});
+
+			var compiledStartDate = moment($('#date').val() + ' ' + $('#time').val(), 'DD-MM-YYYY H:s' );
+
+			$('#time').val('08:30');
+
+			var tt = $('#time').val();
+			var time1 = moment($('#time').val(), 'H:s');
+			var startTime = time1.format('H');
+
+
+			$('#time2').datetimepicker({
+				format: 'H:s',
+			});
+
+			$('#time').on('dp.change', function(){
+				console.log($(this).val());
+				mT = moment($(this).val(), 'H:s');
+				mh = mT.format('H');
+				startTime = mh;
+				$('#time2').datetimepicker({});
+				$('#time2').val(mT.format('H:s'));
+			});
+
+		});
+    </script>
 @endsection

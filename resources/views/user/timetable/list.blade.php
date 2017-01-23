@@ -21,8 +21,8 @@
                         <th>Uzņēmums</th>
                         <th>Reģions</th>
                         <th>Kategorijas</th>
-                        <th>Laiks No.</th>
-                        <th>Atrašanās ilgums</th>
+                        <th>Sākuma laiks</th>
+                        <th>Beigu laiks</th>
                         <th>Darbības</th>
                     </tr>
                     </thead>
@@ -71,44 +71,6 @@
                                         <div class="clearfix"></div>
 
                                     </div>
-
-                                    <script>
-										jQuery(function ($)
-										{
-											var carousel = $("#caroufredsel_91")
-											carousel.carouFredSel({
-												responsive: true,
-												width: '100%',
-												items: {
-													width: 513,
-													height: 'variable',
-													visible: {
-														min: 1,
-														max: 4
-													},
-													minimum: 1
-												},
-												scroll: {
-													items: 1,
-													fx: "scroll",
-													easing: "swing",
-													duration: 500,
-													queue: true
-												},
-												auto: 8000,
-												swipe: {
-													onTouch: true
-												}
-											});
-											$(window).load(function ()
-											{
-												setTimeout(function ()
-												{
-													carousel.trigger('configuration', {reInit: true})
-												}, 100);
-											});
-										});
-                                    </script>
                                 </div>
                             </div>
 

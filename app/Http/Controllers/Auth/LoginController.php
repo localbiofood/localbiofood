@@ -25,7 +25,7 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/timetable';
+    protected $redirectTo = '/usertimetable';
 
     /**
      * Create a new controller instance.

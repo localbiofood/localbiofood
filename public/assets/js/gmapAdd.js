@@ -66,12 +66,26 @@ var googleMapAdd = {
 					]
 				}
 			];
+			var lat = '56.9834821';
+
+			if ($('#lat').val() !== '')
+			{
+				lat = $('#lat').val();
+			}
+
+			var lng = '24.4387936';
+
+			if ($('#lng').val() !== '')
+			{
+				lng = $('#lng').val();
+			}
+
 			var mapOptions2 = {
 				// How zoomed in you want the map to start at (always required)
 				zoom: 8,
 				scrollwheel: false,
 				// The latitude and longitude to center the map (always required)
-				center: new google.maps.LatLng(56.9834821, 24.4387936),
+				center: new google.maps.LatLng(lat, lng),
 				styles: mapstyled8_snl4g_0,
 			};
 			window.map = new google.maps.Map(mapDiv, mapOptions2);
@@ -113,7 +127,7 @@ var googleMapAdd = {
 
 		var marker = new google.maps.Marker({
 			map: map,
-			anchorPoint: new google.maps.Point(56.9424014, 24.13745)
+			anchorPoint: new google.maps.Point(lat, lng)
 		});
 
 		autocomplete.addListener('place_changed', function() {

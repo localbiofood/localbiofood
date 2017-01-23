@@ -2,6 +2,7 @@
 
 namespace App;
 
+use Carbon\Carbon;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
@@ -33,7 +34,7 @@ class Timetable extends Authenticatable
 	public static function getTimetable()
 	{
 
-		$sql = "SELECT tt.event_length, tt.lat, tt.lng, tt.region, tt.time_when, c.city, c.company, c.region, c.description, tt.id
+		$sql = "SELECT tt.lat, tt.lng, tt.region, c.city, c.company, c.region, c.description, tt.id
  			FROM timetables tt
 			LEFT JOIN companies c ON tt.CompanyID = c.id	
 		";
@@ -45,10 +46,10 @@ class Timetable extends Authenticatable
 
 	public static function getTimetableData($id)
 	{
-		$sql = "SELECT tt.event_length, tt.lat, tt.lng, tt.region, tt.time_when, 
-					c.city, c.company, c.description, tt.id
+		$sql = "SELECT tt.lat, tt.lng, tt.region, 
+					tt.id, tt.description, c.code, tt.starttime, tt.endtime
  			FROM timetables tt
-			LEFT JOIN companies c ON tt.CompanyID = c.id	
+			LEFT JOIN timetable_categories c ON tt.id = c.timetable_id	
 			WHERE tt.id = :timetable_id
 		";
 
@@ -64,27 +65,31 @@ class Timetable extends Authenticatable
 	public static function 	saveTimetable($data, $id)
 	{
 		$userID = \Auth::user()->id;
-		$companyData = Company::select('id')->where('user_id', $userID)->first();
-//		$companyID = $companyData->getAttribute('id');
 		$companyID = 1; // Patreiz hardcodets
+
+		$time = array_get($data, 'time');
+		$starttime = Carbon::parse(array_get($data, 'date') . $time);
+
+		$time2 = array_get($data, 'time2');
+		$endtime = Carbon::parse(array_get($data, 'date') . $time2);
 
 		if ($id === 0)
 		{
 			$timetable = Timetable::create([
 												   'companyID' => $companyID,
 												   'region' => $data['region'],
-												   'time_when' => $data['time_when'],
-												   'event_length' => $data['event_length'],
+												   'description' => $data['description'],
 												   'lat' => $data['lat'],
 												   'lng' => $data['lng'],
+												   'starttime' => $starttime,
+												   'endtime' => $endtime,
 										   ]);
 		} else {
 			$timetable = Timetable::find($id);
 			$update = [
 					'companyID' => $companyID,
 					'region' => $data['region'],
-					'time_when' => $data['time_when'],
-					'event_length' => $data['event_length'],
+					'description' => $data['description'],
 					'lat' => $data['lat'],
 					'lng' => $data['lng'],
 			];

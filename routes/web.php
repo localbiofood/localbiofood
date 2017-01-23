@@ -20,11 +20,16 @@ Route::group(['middleware' => 'guest'], function () {
 
 Auth::routes();
 
+/**
+ * Contains public timetable
+ */
 Route::get('/home', 'HomeController@index');
 Route::get('/usefull', ['as' => 'useful::get', 'uses' => 'UsefullController@show']);
 Route::get('/about', ['as' => 'about::get', 'uses' => 'AboutController@show']);
 Route::get('/timetabledata', ['as' => 'timetabledata::post', 'uses' => 'TimetableController@getData']);
 Route::get('/worktime-locations', ['as' => 'timetabledata::post', 'uses' => 'WorktimeController@getData']);
+Route::get('/timetable', ['as' => 'timetable::list', 'uses' => 'TimetableController@show']);
+Route::get('/timetable/show/{id?}', ['as' => 'timetable::show', 'uses' => 'TimetableController@show']);
 
 
 Route::get('newpage', function () {
@@ -40,6 +45,9 @@ Route::get('bio/contact', function(){
     return view('contact');
 });
 
+/**
+ * Contains User timetable, necessary to login
+ */
 Route::group(['middleware' => 'auth'], function () {
 	Route::get('/profile', ['as' => 'profile', 'uses' => 'UserController@show'])->middleware('auth');
 	Route::post('/profile', ['as' => 'profile::save', 'uses' => 'UserController@save'])->middleware('auth');
