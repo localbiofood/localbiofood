@@ -122,22 +122,23 @@ var googleMap = {
 					success: function (data)
 					{
 						var parsed = JSON.parse(data);
-						var lat = '';
-						var lng = '';
 
 						var locations = [];
 
+
 						for (var x in parsed)
 						{
-							// arr.push(parsed[x]);
+							id = parsed[x]['id'];
 							lat = parsed[x]['lat'];
 							lng = parsed[x]['lng'];
 							description = parsed[x]['description'];
-							// locations = ['asd'];
-							locations.push(['mautas', lat, lng, 4, description]);
+							starttime = parsed[x]['starttime'];
+							endtime = parsed[x]['endtime'];
+							url = window.location.hostname + "/timetable/show/" + id;
+							company = parsed[x]['company'];
+							locations.push([description, lat, lng, starttime, endtime, url, company]);
+							// console.log(window.location);
 						}
-
-
 
 						var infowindow = new google.maps.InfoWindow();
 
@@ -160,16 +161,23 @@ var googleMap = {
 								iconimagemap: "13,0,15,1,16,2,17,3,18,4,18,5,19,6,19,7,19,8,19,9,19,10,19,11,19,12,19,13,18,14,18,15,17,16,16,17,15,18,14,19,14,20,13,21,13,22,12,23,12,24,12,25,12,26,11,27,11,28,11,29,11,30,11,31,11,32,11,33,8,33,8,32,8,31,8,30,8,29,8,28,8,27,8,26,7,25,7,24,7,23,6,22,6,21,5,20,5,19,4,18,3,17,2,16,1,15,1,14,0,13,0,12,0,11,0,10,0,9,0,8,0,7,0,6,1,5,1,4,2,3,3,2,4,1,6,0,13,0",
 
 							}));
-							var location = locations[i][0];
-							var description = locations[i][3];
 
-							console.log(locations);
+							var description = locations[i][0];
+
+							// var locations[i][5];
 
 							google.maps.event.addListener(marker, 'click', (function (marker, i)
 							{
-								return function (infoText, stuff)
+								console.log(description);
+								return function ()
 								{
-									infowindow.setContent(location + 'content vai loti gars teksts content vai loti gars teksts content vai loti gars teksts content vai loti gars teksts content vai loti gars teksts content vai loti gars teksts ');
+									var template = '<div style="width:200px;">' +
+											"<span style='font-weight:900'>uzņēmums: " + locations[i][6]  + "<span><br />" +
+											"sākumlaiks: " + locations[i][3]  + "<br />" +
+											"beigulaiks: " + locations[i][4]  +
+
+											'</div>';
+									infowindow.setContent(template);
 									infowindow.open(map, marker);
 								}
 							})(marker, i));

@@ -37,7 +37,7 @@ Route::get('newpage', function () {
 });
 
 
-Route::get('bio/about', function(){
+Route::get('about', function(){
     return view('about');
 });
 

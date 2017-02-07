@@ -2,39 +2,23 @@
 
 namespace App\Http\Controllers;
 
-use App\Category;
-use App\Company;
 use App\Timetable;
-use App\TimetableCategories;
-use Illuminate\Http\Request;
+use App\TimetableImage;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Request;
 
 class TimetableController extends Controller
 {
-
 	public function show(Request $request, $id = null)
 	{
-//		$data = Company::companyData();
-//		$data['timetable'] = Timetable::getTimetableData($id);
-//
-//		$googleMap = view('addGoogleMap');
+		$timetable = Timetable::find($id);
 
+		$images = TimetableImage::select('image_path')->where('timetable_id', $id)->get()->toArray();
 		return view('product.show')
 				->with([
-//						'data' => $data,
-//						'googleMap' => $googleMap
+						'data' => $timetable,
+						'images' => $images
 					   ]);
-	}
-
-	public function edit()
-	{
-//		$data = Company::companyData();
-//		$data['timetable'] = Timetable::getTimetableData($id);
-//
-//		$googleMap = view('addGoogleMap');
-//
-//		return view('timetable')->with(['data' => $data, 'googleMap' => $googleMap]);
-
 	}
 
 	public function getData()
@@ -42,6 +26,7 @@ class TimetableController extends Controller
 		$sql = "SELECT tt.lat, tt.lng, tt.region, c.company, tt.id, tt.starttime, tt.endtime, tt.id
  			FROM timetables tt 
  			LEFT JOIN companies c ON tt.CompanyID = c.id 
+ 			where tt.starttime > NOW()
  			ORDER BY tt.starttime DESC
 		";
 
@@ -50,6 +35,7 @@ class TimetableController extends Controller
 		$sql = \DB::select($sql);
 
 		$results = [];
+		$cnt = 1;
 		foreach($sql as $key => $row )
 		{
 			$categoriesSql = "SELECT tc.code 
@@ -65,6 +51,7 @@ class TimetableController extends Controller
 			$btn = '<a href="' . route('timetable::show', ['id' => $row->id]) . '" class="btn btn-xs btn-secondary"> Atvērt </a>';
 
 			$decorated = [];
+			$decorated[] 			=  $row->id;
 			$decorated[] 			=  $this->coatLink($row->company, route('timetable::list', ['id' => $row->id]));
 			$decorated[] 			=  $row->region;
 			$decorated[] 			=  $categoryImage;
@@ -92,5 +79,7 @@ class TimetableController extends Controller
 
 		return $link;
 	}
+
+
 }
 

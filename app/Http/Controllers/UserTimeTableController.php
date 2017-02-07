@@ -6,14 +6,17 @@ use App\Category;
 use App\Company;
 use App\Timetable;
 use App\TimetableCategories;
+use App\TimetableImage;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
 
 class UserTimeTableController extends Controller
 {
 
 	public function show(Request $request, $id = null)
 	{
+
 		$timetable = Timetable::all();
 
 		return view('user.timetable.list')->with(['timetable' => $timetable]);
@@ -58,6 +61,9 @@ class UserTimeTableController extends Controller
 		$categories = $request->only('category');
 		$timetable = Timetable::saveTimetable($data, array_get($data, 'id', 0));
 		TimetableCategories::saveCategories($timetable, $categories);
+
+		TimetableImage::saveImages($request, $timetable);
+
 
 		return redirect()->route('usertimetable::list')->with('success', 'success');
 	}

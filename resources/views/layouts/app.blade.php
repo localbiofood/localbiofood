@@ -10,8 +10,9 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/css/bootstrap-datetimepicker.min.css" />
 
-    <link rel="stylesheet" href="/assets/css/template.css" type="text/css"/>
-
+    {{--<link rel="stylesheet" href="/assets/css/template.css" type="text/css"/>--}}
+    {{--<link rel="stylesheet" href="/css/clean-blog.css" type="text/css"/>--}}
+    <link href="/css/clean-blog.min.css" rel="stylesheet">
 
     <link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.css" type="text/css"/>
     <link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap-theme.css" type="text/css"/>
@@ -21,6 +22,12 @@
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.13/css/jquery.dataTables.min.css" type="text/css"/>
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.12/datatables.min.css"/>
     <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.13/css/jquery.dataTables.css">
+
+    {{-- CUSTOM CSS--}}
+    <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.13/css/jquery.dataTables.css">
+
+    {{-- JAVASCRIPT --}}
+    <link rel="stylesheet" type="text/css" href="/assets/css/style.css">
 
     {{-- GOOGLE MAP --}}
     <script type='text/javascript'
@@ -36,7 +43,9 @@
 
 
     {{-- TEMPLATE JS --}}
-    <script src="/assets/modules/mod_caroufredsel/js/jquery.caroufredsel.js" type="text/javascript"></script>
+    {{--<script src="/assets/modules/mod_caroufredsel/js/jquery.caroufredsel.js" type="text/javascript"></script>--}}
+    {{--<script src="/assets/js/clean-blog.js" type="text/javascript"></script>--}}
+    <script src="/assets/js/clean-blog.min.js"></script>
 
     {{-- DATA TABLES --}}
     <script src="https://cdn.datatables.net/1.10.13/js/jquery.dataTables.min.js"></script>
@@ -87,13 +96,6 @@
 
         <!-- Header -->
         <div id="header">
-            <!-- Logo -->
-            <div id="logo">
-                <a href="{{route('home')}}">
-                    <h1 style="background: rgba(254, 190, 0, 0.76); padding: 10px">#Localbiofood</h1>
-                </a>
-            </div>
-
             @include('layouts/nav')
             <div class="clearfix"></div>
         </div>
@@ -108,27 +110,16 @@
         <!-- Bottom -->
     </div>
 </div>
-<div id="footer-wrapper">
-    <div class="footer-wrapper-inner">
-        <!-- Copyright -->
-        <div id="copyright" role="contentinfo">
-            <div class="row-container">
-                <div class="container-fluid">
-                    <div class="row-fluid">
-
-                        <div class="copyright span12">
-                            <span class="siteName">Localbiofood</span>
-                            <span class="copy">&copy;</span> <span class="year">2016</span>
-                            <span class="copy">All rights reserved.</span></div>
-                        <!-- {%FOOTER_LINK} -->
-                    </div>
-                </div>
-            </div>
+<div class="row" style="background:black;">
+    <div class=" col-md-11">
+        <div class="pull-right">
+            <h4>Localbiofood 2017</h4>
         </div>
-        <!-- Footer -->
-        @yield('googleMap')
     </div>
 </div>
+
+@yield('googleMap')
+
 <div id="back-top">
     <a href="#"><span></span> </a>
 </div>
