@@ -11,13 +11,8 @@ use App\Company;
 
 class UserController extends Controller
 {
-
-
 	public function show()
 	{
-
-//		$data = User::select('name')->find($userID);
-
 		$data = Company::companyData();
 
 		return view('profile')->with(['data' => $data]);

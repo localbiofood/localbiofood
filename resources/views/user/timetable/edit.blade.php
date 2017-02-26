@@ -40,26 +40,26 @@
                 </div>
 
                 <div class="col-md-6">
-                    <form class="form-horizontal form" action="{{route('usertimetable::post')}}" method="POST"  enctype="multipart/form-data" >
+                    <form class="form-horizontal form" action="{{route('usertimetable::post', array_get($data, 'id'))}}" method="POST"  enctype="multipart/form-data" >
                         {{ csrf_field() }}
                         <div class="row">
                                 <div class="col-md-12">
                                        <label for="region" class="control-label">Reģions:</label>
 
                                        <select name="region" class="form-control" id="region">
-                                           <option @if ($data->region === 'riga') selected="selected"
+                                           <option @if (array_get($data, 'region') === 'riga') selected="selected"
                                                    @endif value="riga">Rīga un tās apkārtne
                                            </option>
-                                           <option @if ($data->region === 'vidzeme') selected="selected"
+                                           <option @if (array_get($data, 'region') === 'vidzeme') selected="selected"
                                                    @endif value="vidzeme">Vidzeme
                                            </option>
-                                           <option @if ($data->region === 'kurzeme') selected="selected"
+                                           <option @if (array_get($data, 'region') === 'kurzeme') selected="selected"
                                                    @endif value="kurzeme">Kurzeme
                                            </option>
-                                           <option @if ($data->region === 'latgale') selected="selected"
+                                           <option @if (array_get($data, 'region') === 'latgale') selected="selected"
                                                    @endif value="latgale">Latgale
                                            </option>
-                                           <option @if ($data->region === 'zemgale') selected="selected"
+                                           <option @if (array_get($data, 'region') === 'zemgale') selected="selected"
                                                    @endif value="zemgale">Zemgale
                                            </option>
                                        </select>
@@ -75,18 +75,19 @@
 
                                     <input type="text" class="form-control datepicker" name="date" id="date">
                             </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+
                             <div class="col-sm-6">
                                 <label for="region" class="col-sm-6 control-label">Sākuma laiks:</label>
-                                <div class="col-sm-6">
-                                    <input type="text" class="form-control"  name="time" id="time" class="datepicker">
-                                </div>
+                                <input type="text" class="form-control"  name="time" id="time" class="datepicker">
                             </div>
                             <div class="col-sm-6">
                                 <label for="region" class="col-sm-6 control-label">Beigu laiks:</label>
-                                <div class="col-sm-6">
-                                    <input type="text" class="form-control"  name="time2" id="time2" class="datepicker">
-                                </div>
+                                <input type="text" class="form-control"  name="time2" id="time2" class="datepicker">
                             </div>
+                        </div>
                         </div>
 
                         <div class="row">
@@ -96,8 +97,8 @@
 
                                     <input id="pac-input" class="controls form-control" type="text"
                                            placeholder="Enter a location">
-                                    <input type="hidden" name="lat" id="lat" value="{{$data->lat}}">
-                                    <input type="hidden" name="lng" id="lng" value="{{$data->lng}}">
+                                    <input type="hidden" name="lat" id="lat" value="{{array_get($data, 'lat')}}">
+                                    <input type="hidden" name="lng" id="lng" value="{{array_get($data, 'lng')}}">
                                 </div>
                                 @if ($errors->has('Address'))
                                     <span class="help-block">{{ $errors->first('Address')}}</span>
@@ -108,10 +109,10 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <label for="region" class="control-label">Produktu kategorijas</label>
-                                <select class="form-control" name="category[code]" id="code">
+                                <select class="form-control" name="category[]" multiple="multiple" id="code">
                                     @foreach($code as $key => $value)
-                                        <option @if($data->code === $key) selected="selected"
-                                                @endif value="{{$key}}">{{$value}}</option>
+                                        <option @if(isset($data['code']) && in_array($data['code'], $data['categories'])) selected="selected" @endif value="{{$key}}">
+                                            {{$value}}</option>
                                     @endforeach
                                 </select>
                                 @if ($errors->has('event_length'))
@@ -141,7 +142,7 @@
                                               id=""
                                               class="form-control"
                                               cols="30"
-                                              rows="3">{{$data->description}}</textarea>
+                                              rows="3">{{array_get($data, 'description')}}</textarea>
                                     </div>
                                     @if ($errors->has('description'))
                                         <span class="help-block">{{ $errors->first('description')}}</span>
@@ -154,8 +155,12 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="form-group">
-                                    <input class="btn btn-primary" type="submit" value="Saglabāt">
-                                    {{--<a class="btn btn-default" href="{{route('usertimetable::list')}}">Atcelt</a>--}}
+                                    <a class="btn btn-default" href="{{route('usertimetable::list')}}">Atcelt</a>
+                                    @if(isset($data['id']) && $data['id'])
+                                        <input class="btn btn-primary" name="save" type="submit" value="Saglabāt">
+                                    @else
+                                        <input class="btn btn-primary" name="new" type="submit" value="Saglabāt">
+                                    @endif
                                 </div>
                             </div>
                         </div>
@@ -188,13 +193,14 @@
 
 				var compiledStartDate = moment($('#date').val() + ' ' + $('#time').val(), 'DD-MM-YYYY H:s');
 
-				$('#time').val('08:30');
+				$('#time').val('12:30');
 
 				var tt = $('#time').val();
 				var time1 = moment($('#time').val(), 'H:s');
 				var startTime = time1.format('H');
 
 
+				$('#time2').val('13:30');
 				$('#time2').datetimepicker({
 					format: 'H:s',
 				});
@@ -210,6 +216,10 @@
 				});
 
 			});
+
+			$('#code').select2({
+                multiple: true
+            });
         </script>
 
     </div>

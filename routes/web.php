@@ -60,7 +60,7 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::post('/gettimetables', ['as' => 'timetable::get', 'uses' => '\App\Http\Controllers\TimetableController@getTimetables()']);
 
 	// User timetable
-	Route::post('/usertimetable', ['as' => 'usertimetable::post', 'uses' => 'UserTimeTableController@post']);
+	Route::post('/usertimetable/{id?}', ['as' => 'usertimetable::post', 'uses' => 'UserTimeTableController@post']);
 	Route::get('/usertimetable', ['as' => 'usertimetable::list', 'uses' => 'UserTimeTableController@show']);
 	Route::get('/usertimetable/edit/{id?}', ['as' => 'usertimetable::edit', 'uses' => 'UserTimeTableController@edit']);
 	Route::get('/usertimetabledata', ['as' => 'usertimetabledata::post', 'uses' => 'UserTimeTableController@getData']);

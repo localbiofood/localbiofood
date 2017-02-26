@@ -16,8 +16,12 @@ class UserTimeTableController extends Controller
 
 	public function show(Request $request, $id = null)
 	{
+		$companyID = Company::getCompanyID();
 
-		$timetable = Timetable::all();
+		$timetable = Timetable::where('companyID', $companyID)
+				->where('starttime', '<', Carbon::today()->toDateString())
+				->orderBy('starttime')
+				->get();
 
 		return view('user.timetable.list')->with(['timetable' => $timetable]);
 	}
@@ -33,6 +37,7 @@ class UserTimeTableController extends Controller
 		{
 			$timetable = new Timetable();
 		}
+
 		$googleMap = view('addGoogleMap');
 
 		return view('user.timetable.edit', [$id])
@@ -43,13 +48,12 @@ class UserTimeTableController extends Controller
 					   ]);
 	}
 
-	public function post(Request $request)
+	public function post(Request $request, $id = 0)
 	{
 		$data = $request->except('_token', 'category');
 
 		$validator = \Validator::make($request->all(), [
 				'region' => 'required',
-				'description' => 'required',
 		]);
 
 		if ($validator->fails()) {
@@ -59,26 +63,28 @@ class UserTimeTableController extends Controller
 		}
 
 		$categories = $request->only('category');
-		$timetable = Timetable::saveTimetable($data, array_get($data, 'id', 0));
+		$timetable = Timetable::saveTimetable($data, $id);
 		TimetableCategories::saveCategories($timetable, $categories);
-
 		TimetableImage::saveImages($request, $timetable);
-
 
 		return redirect()->route('usertimetable::list')->with('success', 'success');
 	}
 
 	public function getData()
 	{
-		$sql = "SELECT tt.id,  tt.lat, tt.lng, tt.region, c.company, tt.starttime, tt.endtime
+		$sql = "SELECT tt.id,  tt.lat, tt.lng, tt.region, c.company, tt.starttime, tt.endtime, tt.description
  			FROM timetables tt 
  			LEFT JOIN companies c ON tt.CompanyID = c.id 
- 			ORDER BY tt.starttime DESC
+ 			WHERE tt.endtime > :time_now
+ 			ORDER BY tt.starttime ASC
 		";
 
+		$currentTime = Carbon::now()->format('Y-m-d H:i:s');
 		$count = Timetable::select('id')->get()->count();
 
-		$sql = \DB::select($sql);
+		$sql = \DB::select($sql, [
+				':time_now' => $currentTime
+		]);
 
 		$results = [];
 		foreach($sql as $key => $row )
@@ -101,6 +107,7 @@ class UserTimeTableController extends Controller
 			$decorated[] 			=  $categoryImage;
 			$decorated[] 			=  Carbon::parse($row->starttime)->format('d-m-Y H:s');
 			$decorated[] 			=  Carbon::parse($row->endtime)->format('d-m-Y H:s');
+			$decorated[] 			=  $row->description;
 			$decorated[] 			=  $btn;
 			$results[] = $decorated;
 		}

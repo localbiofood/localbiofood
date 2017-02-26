@@ -27,13 +27,13 @@ class TimetableCategories extends Authenticatable
 
 	public static function saveCategories(Timetable $timetable, $categories)
 	{
-
 		if (!empty($categories['category']))
 		{
 			foreach ($categories['category'] as $key => $value)
 			{
 				if (!TimetableCategories::select('id')->where(['code' => $key])->exists())
 				{
+					dump($value, $timetable->getAttribute('id'));
 					TimetableCategories::create([
 														'code'         => $value,
 														'timetable_id' => $timetable->getAttribute('id'),

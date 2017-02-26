@@ -25,11 +25,12 @@ class WorktimeController extends Controller
 		{
 			$row->starttime = Carbon::parse($row->starttime)->format('H:s');
 			$row->endtime = Carbon::parse($row->endtime)->format('H:s');
+			$row->url = "<a href='" . route('timetable::show', $row->id) . "'>Apskatīt profilu</a>";
+			$row->date = "diena: " . Carbon::parse($row->starttime)->format('d-m-Y');
 			$final[] = $row;
 		}
 
 		return json_encode($final);
 	}
-
 }
 

@@ -32,4 +32,13 @@ class Company extends Authenticatable
 				->where('user_id', $userID)
 				->first();
 	}
+
+	public static function getCompanyID()
+	{
+		$userID = Auth::user()->getAttribute('id');
+
+		$companyID = Company::select('id')->where('user_id', $userID)->first();
+
+		return $companyID;
+	}
 }

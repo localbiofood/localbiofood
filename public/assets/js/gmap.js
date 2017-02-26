@@ -134,10 +134,10 @@ var googleMap = {
 							description = parsed[x]['description'];
 							starttime = parsed[x]['starttime'];
 							endtime = parsed[x]['endtime'];
-							url = window.location.hostname + "/timetable/show/" + id;
+							url = parsed[x]['url'];
 							company = parsed[x]['company'];
-							locations.push([description, lat, lng, starttime, endtime, url, company]);
-							// console.log(window.location);
+							day = parsed[x]['date'];
+							locations.push([description, lat, lng, starttime, endtime, url, company, url, day]);
 						}
 
 						var infowindow = new google.maps.InfoWindow();
@@ -168,13 +168,15 @@ var googleMap = {
 
 							google.maps.event.addListener(marker, 'click', (function (marker, i)
 							{
-								console.log(description);
+								// console.log(description);
 								return function ()
 								{
 									var template = '<div style="width:200px;">' +
 											"<span style='font-weight:900'>uzņēmums: " + locations[i][6]  + "<span><br />" +
+											locations[i][7]  + "<br />" +
+											locations[i][8] + "<br />" +
 											"sākumlaiks: " + locations[i][3]  + "<br />" +
-											"beigulaiks: " + locations[i][4]  +
+											"beigulaiks: " + locations[i][4]  + "<br />" +
 
 											'</div>';
 									infowindow.setContent(template);

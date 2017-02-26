@@ -12,7 +12,7 @@
 
     {{--<link rel="stylesheet" href="/assets/css/template.css" type="text/css"/>--}}
     {{--<link rel="stylesheet" href="/css/clean-blog.css" type="text/css"/>--}}
-    <link href="/css/clean-blog.min.css" rel="stylesheet">
+    {{--<link href="/css/clean-blog.min.css" rel="stylesheet">--}}
 
     <link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.css" type="text/css"/>
     <link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap-theme.css" type="text/css"/>
@@ -26,9 +26,6 @@
     {{-- CUSTOM CSS--}}
     <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.13/css/jquery.dataTables.css">
 
-    {{-- JAVASCRIPT --}}
-    <link rel="stylesheet" type="text/css" href="/assets/css/style.css">
-
     {{-- GOOGLE MAP --}}
     <script type='text/javascript'
             src='http://maps.google.com/maps/api/js?v=3.exp&amp;language=en-GB&amp;libraries=places&amp;key=AIzaSyCPGgBHAlfYvfitdF967fvGW6YRU0WbuCE'></script>
@@ -40,6 +37,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/js/bootstrap-datetimepicker.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
 
 
     {{-- TEMPLATE JS --}}
@@ -57,21 +55,41 @@
           type='text/css'>
     <link href='//fonts.googleapis.com/css?family=Asap:400,400italic,700,700italic' rel='stylesheet' type='text/css'>
 
+    {{-- Select 2--}}
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="/assets/css/style.css">
 
     {{-- TIMEPICKER JS --}}
     <script src="/assets/plugins/ericjgagnon-wickedpicker-5080539/dist/wickedpicker.min.js"
             type="text/javascript"></script>
     <script src="/assets/js/gmap.js" type="text/javascript"></script>
     <script src="/assets/js/gmapAdd.js" type="text/javascript"></script>
+    <script src="/assets/js/showInMap.js" type="text/javascript"></script>
 
     <script type="text/javascript">
 		jQuery(document).ready(function ()
 		{
-			$('#timetable').DataTable({
+			var table = $('#timetable').DataTable({
 				"ajax": {
 					url: "/timetabledata",
 				},
 			});
+
+			$('#showcase a').click(function(){
+				var column = $(this).data('columnIndex');
+				var category =  $(this).data('category');
+				table.column(column).search(category).draw();
+			});
+
+			$('#regionLinks a').click(function() {
+				var region =  $(this).data('region');
+				// Remove all active classes
+				$('.active').removeClass('active');
+				//Set active only to current
+                $(this).addClass('active');
+				table.column(2).search(region).draw();
+            });
 
 			$('#user_timetable').DataTable({
 				"ajax": {
@@ -108,15 +126,23 @@
 
     <!-- Mainbottom -->
         <!-- Bottom -->
-    </div>
-</div>
-<div class="row" style="background:black;">
-    <div class=" col-md-11">
-        <div class="pull-right">
-            <h4>Localbiofood 2017</h4>
+        <div class="row" style="background-color: rgba(0, 0, 0, 0.3)">
+            <div class="col-md-3" style="margin:35px">
+                <img src="/assets/images/Agrichamber_Logo_Gat_edited.png" alt="Agrichamber">
+            </div>
+        </div>
+
+        <div class="row" style="background:black;">
+            <div class=" col-md-11">
+                <div class="pull-right">
+                    <h4>Localbiofood 2017</h4>
+                </div>
+            </div>
         </div>
     </div>
 </div>
+
+
 
 @yield('googleMap')
 

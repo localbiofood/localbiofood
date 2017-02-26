@@ -58,9 +58,32 @@ class Timetable extends Authenticatable
 							   'timetable_id' => $id
 						   ]);
 
-			return $res;
+		$result = [];
+
+		if (is_array($res))
+		{
+			foreach($res as $key => $row)
+			{
+				$result[$key] = $row;
+			}
+
+			$categories = TimetableCategories::select('id', 'code')
+					->where('timetable_id', $id)
+					->get()
+					->pluck('code')
+					->toArray();
+
+			$result['categories'] = $categories;
+		}
+
+
+		return $result;
 	}
 
+	public function getCategories()
+	{
+
+	}
 
 	public static function 	saveTimetable($data, $id)
 	{
@@ -73,7 +96,7 @@ class Timetable extends Authenticatable
 		$time2 = array_get($data, 'time2');
 		$endtime = Carbon::parse(array_get($data, 'date') . $time2);
 
-		if ($id === 0)
+		if (isset($data['new']))
 		{
 			$timetable = Timetable::create([
 												   'companyID' => $companyID,

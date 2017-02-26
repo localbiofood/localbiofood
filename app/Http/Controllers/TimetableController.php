@@ -55,8 +55,8 @@ class TimetableController extends Controller
 			$decorated[] 			=  $this->coatLink($row->company, route('timetable::list', ['id' => $row->id]));
 			$decorated[] 			=  $row->region;
 			$decorated[] 			=  $categoryImage;
-			$decorated[] 			=  Carbon::parse($row->starttime)->format('d-m-Y H:s');
-			$decorated[] 			=  Carbon::parse($row->endtime	)->format('d-m-Y H:s');
+			$decorated[] 			=  Carbon::parse($row->starttime)->format('d-m-Y');
+			$decorated[] 			=  Carbon::parse($row->endtime	)->format('H:s') . ' - ' . Carbon::parse($row->endtime	)->format('H:s');
 			$decorated[] 			=  $btn  ;
 			$results[] = $decorated;
 		}

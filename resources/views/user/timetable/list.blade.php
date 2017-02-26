@@ -31,6 +31,7 @@
                                 <th>Kategorijas</th>
                                 <th>Sākuma laiks</th>
                                 <th>Beigu laiks</th>
+                                <th>Apraksts</th>
                                 <th>Darbības</th>
                             </tr>
                             </thead>
